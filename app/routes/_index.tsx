@@ -1,8 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/.server/getPosts";
-
 import { Post } from "~/components/post";
+import { Button } from "~/components/ui/button";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -27,13 +27,6 @@ export default function Index() {
 			<div className="space-y-8">
 				<div>
 					<h2 className="text-4xl font-bold">Remix 🤝 MDX</h2>
-					<p className="text-gray-600 font-light">
-						Powered by Vite plugins. Check out the{" "}
-						<a href="https://github.com/pcattori/remix-blog-mdx">
-							code on Github
-						</a>
-						.
-					</p>
 				</div>
 				<hr />
 				<section>
@@ -47,6 +40,7 @@ export default function Index() {
 					</ul>
 				</section>
 			</div>
+			<Button>Click me</Button>
 			<div className="hidden sm:block">
 				<img
 					src="/hero.png"
