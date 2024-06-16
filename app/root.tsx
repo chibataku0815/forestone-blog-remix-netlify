@@ -10,7 +10,7 @@ import {
 import type { MetaFunction } from "@remix-run/react";
 import type { ReactNode } from "react";
 
-import "~/tailwind.css";
+import "~/global.css";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 	isActive ? "border-b-2 border-cyan-700" : "";

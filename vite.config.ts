@@ -15,6 +15,12 @@ export default defineConfig({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
       rehypePlugins: [rehypePrettyCode],
     }),
-    remix(), netlifyPlugin(), tsconfigPaths()
+    remix({
+      future: {
+        v3_fetcherPersist: true,
+        v3_relativeSplatPath: true,
+        v3_throwAbortReason: true,
+      },
+    }), netlifyPlugin(), tsconfigPaths()
   ],
 });
