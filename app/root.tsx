@@ -9,11 +9,19 @@ import {
 } from "@remix-run/react";
 import type { MetaFunction } from "@remix-run/react";
 import type { ReactNode } from "react";
+import type { LinksFunction } from "@remix-run/node";
 
 import "~/global.css";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 	isActive ? "border-b-2 border-cyan-700" : "";
+
+export const links: LinksFunction = () => [
+	{
+		rel: "stylesheet",
+		href: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap",
+	},
+];
 
 const Layout = (props: { children: ReactNode }) => (
 	<div className="min-h-screen flex flex-col">
