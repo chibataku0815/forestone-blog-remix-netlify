@@ -11,7 +11,7 @@ import type { MetaFunction } from "@remix-run/react";
 import type { ReactNode } from "react";
 import type { LinksFunction } from "@remix-run/node";
 import "~/global.css";
-import { Header } from "~/components/ui/header";
+import { Navigation } from "~/components/ui/navigation";
 
 export const links: LinksFunction = () => [
 	{
@@ -22,8 +22,8 @@ export const links: LinksFunction = () => [
 
 const Layout = (props: { children: ReactNode }) => (
 	<div className="min-h-screen flex flex-col">
-		<Header />
-		<main className="w-full max-w-7xl mx-auto flex-1 flex">
+		<Navigation />
+		<main className="w-full max-w-7xl mx-auto flex-1 flex mt-16 md:mt-0 mb-16 md:mb-0">
 			{props.children}
 		</main>
 		<footer className="w-full max-w-7xl mx-auto p-10 flex justify-center">

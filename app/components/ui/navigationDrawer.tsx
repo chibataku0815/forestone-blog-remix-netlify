@@ -16,7 +16,11 @@ import { NavLink } from "@remix-run/react";
  * @returns {JSX.Element} ナビゲーションドロワーコンポーネント
  */
 
-export function NavigationDrawer() {
+export function NavigationDrawer({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const [isClient, setIsClient] = useState(false);
 
 	useEffect(() => {
@@ -32,29 +36,7 @@ export function NavigationDrawer() {
 			<DrawerTrigger asChild>
 				<Button variant="outline">Open Menu</Button>
 			</DrawerTrigger>
-			<DrawerContent>
-				<div className="p-4">
-					<nav>
-						<ul className="space-y-2">
-							<li>
-								<NavLink to="/" className="block p-2 hover:bg-gray-100">
-									Home
-								</NavLink>
-							</li>
-							<li>
-								<NavLink to="/blog" className="block p-2 hover:bg-gray-100">
-									Blog
-								</NavLink>
-							</li>
-							<li>
-								<NavLink to="/about" className="block p-2 hover:bg-gray-100">
-									About
-								</NavLink>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</DrawerContent>
+			<DrawerContent>{children}</DrawerContent>
 		</Drawer>
 	);
 }
