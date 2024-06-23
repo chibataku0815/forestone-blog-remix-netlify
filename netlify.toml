@@ -1,0 +1,9 @@
+[build]
+command = "bun run build"
+publish = "build"
+
+[build.environment]
+FONTAWESOME_NPM_AUTH_TOKEN = "66B42FD2-8877-4678-B62A-61A4F8470C93"
+
+[install.scopes]
+"@fortawesome" = { token = "${FONTAWESOME_NPM_AUTH_TOKEN}", url = "https://npm.fontawesome.com/" }
