@@ -15,7 +15,6 @@ import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import * as faSolid from "@fortawesome/pro-solid-svg-icons";
 import * as faRegular from "@fortawesome/pro-regular-svg-icons";
 import * as faLight from "@fortawesome/pro-light-svg-icons";
-import * as faDuotone from "@fortawesome/pro-duotone-svg-icons";
 
 /**
  * Props for the Icon component.
