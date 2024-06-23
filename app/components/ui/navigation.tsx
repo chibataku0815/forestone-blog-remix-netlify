@@ -7,13 +7,13 @@
  */
 
 import { NavLink } from "@remix-run/react";
-import { ThemeToggle } from "./themeToggle";
-import { NavigationDrawer } from "./navigationDrawer";
+import { ThemeToggle } from "~/components/ui/themeToggle";
+import { NavigationDrawer } from "~/components/ui/navigationDrawer";
 
 /**
  * ナビゲーションを表示するコンポーネント
  *
- * @returns {JSX.Element} ナビゲーションコンポーネント
+ * @returns {React.FC} ナビゲーションコンポーネント
  */
 export function Navigation() {
 	return (
