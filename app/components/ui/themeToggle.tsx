@@ -4,8 +4,8 @@
  */
 
 import { useState, useEffect } from "react";
-import { MoonIcon, SunIcon } from "lucide-react";
-import { Button } from "./ui/button";
+
+import { Button } from "./button";
 
 /**
  * ライトモードとダークモードを切り替えるボタンコンポーネント
@@ -43,11 +43,7 @@ export const ThemeToggle = () => {
 
 	return (
 		<Button variant="ghost" onClick={toggleTheme}>
-			{isDarkMode ? (
-				<SunIcon className="h-5 w-5" />
-			) : (
-				<MoonIcon className="h-5 w-5" />
-			)}
+			{isDarkMode ? <p>ダークモード</p> : <p>ライトモード</p>}
 		</Button>
 	);
 };

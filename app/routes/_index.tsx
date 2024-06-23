@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/.server/getPosts";
-import { ThemeToggle } from "~/components/ThemeToggle";
+import { ThemeToggle } from "~/components/ui/themeToggle";
 import { Post } from "~/components/post";
 import { Button } from "~/components/ui/button";
 
@@ -41,7 +41,6 @@ export default function Index() {
 					</ul>
 				</section>
 			</div>
-			<ThemeToggle />
 			<div className="hidden sm:block">
 				<img
 					src="/hero.png"

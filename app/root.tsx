@@ -10,11 +10,8 @@ import {
 import type { MetaFunction } from "@remix-run/react";
 import type { ReactNode } from "react";
 import type { LinksFunction } from "@remix-run/node";
-
 import "~/global.css";
-
-const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-	isActive ? "border-b-2 border-cyan-700" : "";
+import { Header } from "~/components/ui/header";
 
 export const links: LinksFunction = () => [
 	{
@@ -25,27 +22,7 @@ export const links: LinksFunction = () => [
 
 const Layout = (props: { children: ReactNode }) => (
 	<div className="min-h-screen flex flex-col">
-		<header className="w-full max-w-7xl mx-auto p-10 border-b border-gray-100">
-			<nav>
-				<ul className="flex gap-16 text-lg font-semibold">
-					<li>
-						<NavLink to="/" className={navLinkClass}>
-							home
-						</NavLink>
-					</li>
-					<li>
-						<NavLink to="/blog" className={navLinkClass}>
-							blog
-						</NavLink>
-					</li>
-					<li>
-						<NavLink to="/about" className={navLinkClass}>
-							about
-						</NavLink>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<Header />
 		<main className="w-full max-w-7xl mx-auto flex-1 flex">
 			{props.children}
 		</main>
