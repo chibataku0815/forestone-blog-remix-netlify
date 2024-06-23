@@ -5,6 +5,7 @@
  * @module NavigationDrawer
  * @file app/components/ui/navigationDrawer.tsx
  */
+import { useState, useEffect } from "react";
 import { Drawer, DrawerContent, DrawerTrigger } from "~/components/ui/drawer";
 import { Button } from "~/components/ui/button";
 import { NavLink } from "@remix-run/react";
@@ -16,6 +17,16 @@ import { NavLink } from "@remix-run/react";
  */
 
 export function NavigationDrawer() {
+	const [isClient, setIsClient] = useState(false);
+
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+
+	if (!isClient) {
+		return <Button variant="outline">Open Menu</Button>;
+	}
+
 	return (
 		<Drawer>
 			<DrawerTrigger asChild>

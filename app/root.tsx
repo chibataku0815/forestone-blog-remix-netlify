@@ -56,6 +56,18 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+						(function() {
+							var savedTheme = localStorage.getItem('theme');
+							if (savedTheme === 'dark' || (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+								document.documentElement.classList.add('dark');
+							}
+						})();
+					`,
+					}}
+				/>
 				<Layout>
 					<Outlet />
 				</Layout>
