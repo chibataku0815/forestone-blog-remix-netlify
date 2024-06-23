@@ -70,9 +70,6 @@ export const Icon: React.FC<IconProps> = ({
 		case "light":
 			icon = faLight[name as keyof typeof faLight] as IconDefinition;
 			break;
-		case "duotone":
-			icon = faDuotone[name as keyof typeof faDuotone] as IconDefinition;
-			break;
 		case "solid":
 			icon = faSolid[name as keyof typeof faSolid] as IconDefinition;
 			break;
