@@ -1,5 +1,2 @@
 [build]
 command = "bun run build"
-
-[build.environment]
-FONTAWESOME_NPM_AUTH_TOKEN = "$FONTAWESOME_NPM_AUTH_TOKEN"
