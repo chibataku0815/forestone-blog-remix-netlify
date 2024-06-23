@@ -29,7 +29,6 @@ export default function Index() {
 				<div>
 					<h2 className="text-4xl font-bold">Remix 🤝 MDX</h2>
 				</div>
-				<hr />
 				<section>
 					<h3 className="text-xl tracking-wide">✨ FEATURED ✨</h3>
 					<ul className="mt-4 space-y-8">

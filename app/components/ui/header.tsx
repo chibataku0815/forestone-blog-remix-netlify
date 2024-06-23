@@ -18,7 +18,7 @@ import { NavigationDrawer } from "./navigationDrawer";
 
 export function Header() {
 	return (
-		<header className="w-full max-w-7xl mx-auto p-10 border-b border-gray-100 flex justify-between items-center">
+		<header className="w-full max-w-7xl mx-auto p-10 border-b flex justify-between items-center">
 			<NavigationDrawer />
 			<ThemeToggle />
 		</header>
