@@ -16,11 +16,18 @@ import {
  * システム設定、ライトモード、ダークモードを切り替えるボタンを提供します。
  * 現在のテーマに応じたアイコンとテキストを表示します。
  *
+ * @module ThemeToggle
+ * @file app/components/ui/themeToggle.tsx
  * @returns {JSX.Element} テーマ切り替えボタン
  */
+
 export const ThemeToggle = () => {
 	const { theme, setTheme } = useTheme();
 
+	/**
+	 * テーマを切り替える関数
+	 * システム設定 -> ライトモード -> ダークモードの順に切り替わります。
+	 */
 	const toggleTheme = () => {
 		if (theme === "system") {
 			setTheme("light");
@@ -31,6 +38,10 @@ export const ThemeToggle = () => {
 		}
 	};
 
+	/**
+	 * 現在のテーマに応じたアイコンを返す関数
+	 * @returns {IconDefinition} テーマに対応するFontAwesomeアイコン
+	 */
 	const getThemeIcon = () => {
 		switch (theme) {
 			case "system":
@@ -44,6 +55,10 @@ export const ThemeToggle = () => {
 		}
 	};
 
+	/**
+	 * 現在のテーマに応じたテキストを返す関数
+	 * @returns {string} テーマの日本語表示名
+	 */
 	const getThemeText = () => {
 		switch (theme) {
 			case "system":

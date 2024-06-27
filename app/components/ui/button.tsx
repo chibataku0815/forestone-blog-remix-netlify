@@ -3,6 +3,22 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 
+/**
+ * ボタンコンポーネント
+ *
+ * @module Button
+ * @file app/components/ui/Button.tsx
+ */
+
+/**
+ * ボタンのスタイルバリエーションを定義する関数
+ *
+ * @function buttonVariants
+ * @param {Object} props - ボタンのプロパティ
+ * @param {string} [props.variant] - ボタンの外観バリアント
+ * @param {string} [props.size] - ボタンのサイズ
+ * @returns {string} 適用されるクラス名
+ */
 const buttonVariants = cva(
 	"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
 	{
@@ -32,12 +48,28 @@ const buttonVariants = cva(
 	},
 );
 
+/**
+ * ボタンコンポーネントのプロパティ型定義
+ *
+ * @interface ButtonProps
+ * @extends {React.ButtonHTMLAttributes<HTMLButtonElement>}
+ * @extends {VariantProps<typeof buttonVariants>}
+ */
 export interface ButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
 		VariantProps<typeof buttonVariants> {
 	asChild?: boolean;
 }
 
+/**
+ * カスタマイズ可能なボタンコンポーネント
+ *
+ * @module Button
+ * @file app/components/ui/Button.tsx
+ * @param {ButtonProps} props - ボタンのプロパティ
+ * @param {React.Ref<HTMLButtonElement>} ref - ボタン要素への参照
+ * @returns {JSX.Element} ボタン要素
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	({ className, variant, size, asChild = false, ...props }, ref) => {
 		const Comp = asChild ? Slot : "button";

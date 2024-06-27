@@ -1,6 +1,19 @@
 import { Link } from "@remix-run/react";
 import type { PostMeta } from "~/.server/getPosts";
 
+/**
+ * ブログ投稿のプレビューを表示するコンポーネント
+ *
+ * @module Post
+ * @file app/components/post.tsx
+ * @param {Object} props - コンポーネントのプロパティ
+ * @param {string} props.slug - 投稿のスラッグ（URL用の一意の識別子）
+ * @param {Object} props.frontmatter - 投稿のメタデータ
+ * @param {string} props.frontmatter.title - 投稿のタイトル
+ * @param {string} props.frontmatter.description - 投稿の説明
+ * @param {string} props.frontmatter.published - 投稿の公開日
+ * @returns {JSX.Element} 投稿プレビューの要素
+ */
 export const Post = ({ slug, frontmatter }: PostMeta) => {
 	return (
 		<article className="space-y-2">

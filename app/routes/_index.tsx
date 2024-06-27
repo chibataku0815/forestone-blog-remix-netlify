@@ -1,10 +1,20 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/.server/getPosts";
-import { ThemeToggle } from "~/components/ui/themeToggle";
 import { Post } from "~/components/post";
-import { Button } from "~/components/ui/button";
 
+/**
+ * インデックスページのコンポーネント
+ *
+ * @module Index
+ * @file app/routes/_index.tsx
+ */
+
+/**
+ * メタデータを定義する関数
+ *
+ * @returns {Array<Object>} ページのメタデータ
+ */
 export const meta: MetaFunction = () => {
 	return [
 		{ title: "New Remix App" },
@@ -15,11 +25,23 @@ export const meta: MetaFunction = () => {
 	];
 };
 
+/**
+ * データローダー関数
+ *
+ * @returns {Promise<Array<Object>>} フィーチャーされた投稿の配列
+ */
 export const loader = async () => {
 	const posts = await getPosts();
 	return posts.filter((post) => post.frontmatter.featured);
 };
 
+/**
+ * インデックスページのコンポーネント
+ *
+ * @module Index
+ * @file app/routes/_index.tsx
+ * @returns {JSX.Element} インデックスページの要素
+ */
 export default function Index() {
 	const featuredPosts = useLoaderData<typeof loader>();
 
