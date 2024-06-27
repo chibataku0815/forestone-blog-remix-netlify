@@ -1,15 +1,3 @@
-"use client";
-
-import { Button } from "./button";
-import { useTheme } from "~/hooks/useTheme";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faSun,
-	faMoon,
-	faLaptop,
-	faCircleQuestion,
-} from "@fortawesome/pro-solid-svg-icons";
-
 /**
  * テーマ切り替えコンポーネント
  *
@@ -20,6 +8,17 @@ import {
  * @file app/components/ui/themeToggle.tsx
  * @returns {JSX.Element} テーマ切り替えボタン
  */
+
+"use client";
+import { Button } from "./button";
+import { useTheme } from "~/hooks/useTheme";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faSun,
+	faMoon,
+	faLaptop,
+	faCircleQuestion,
+} from "@fortawesome/pro-solid-svg-icons";
 
 export const ThemeToggle = () => {
 	const { theme, setTheme } = useTheme();

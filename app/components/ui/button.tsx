@@ -1,14 +1,14 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "~/lib/utils";
-
 /**
  * ボタンコンポーネント
  *
  * @module Button
  * @file app/components/ui/Button.tsx
  */
+
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "~/lib/utils";
 
 /**
  * ボタンのスタイルバリエーションを定義する関数

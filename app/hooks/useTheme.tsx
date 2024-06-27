@@ -1,8 +1,3 @@
-import { useState, useEffect } from "react";
-
-/** テーマの型定義 */
-type Theme = "light" | "dark" | "system";
-
 /**
  * テーマを管理するカスタムフック
  *
@@ -12,6 +7,12 @@ type Theme = "light" | "dark" | "system";
  * @returns {Theme} theme - 現在のテーマ
  * @returns {function} setTheme - テーマを更新する関数
  */
+
+import { useState, useEffect } from "react";
+
+/** テーマの型定義 */
+type Theme = "light" | "dark" | "system";
+
 export const useTheme = () => {
 	const [theme, setTheme] = useState<Theme>("system");
 

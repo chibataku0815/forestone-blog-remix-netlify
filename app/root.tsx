@@ -1,3 +1,12 @@
+/**
+ * アプリのルートコンポーネント
+ * このファイルはRemixアプリケーションのエントリーポイントとなり、
+ * 全体的なレイアウトとメタデータを定義します。
+ *
+ * @module App
+ * @file app/root.tsx
+ */
+
 import {
 	Links,
 	LiveReload,
@@ -10,9 +19,16 @@ import {
 import type { MetaFunction } from "@remix-run/react";
 import type { ReactNode } from "react";
 import type { LinksFunction } from "@remix-run/node";
+import { useEffect } from "react";
 import "~/global.css";
 import { Navigation } from "~/components/ui/navigation";
 
+/**
+ * アプリケーションで使用するリンクを定義します。
+ * ここでは、Google Fontsからフォントをロードしています。
+ *
+ * @type {LinksFunction}
+ */
 export const links: LinksFunction = () => [
 	{
 		rel: "stylesheet",
@@ -20,6 +36,32 @@ export const links: LinksFunction = () => [
 	},
 ];
 
+/**
+ * テーマの初期化を行うコンポーネント
+ */
+const ThemeInitializer = () => {
+	useEffect(() => {
+		const savedTheme = localStorage.getItem("theme");
+		if (
+			savedTheme === "dark" ||
+			(savedTheme === "system" &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add("dark");
+		}
+	}, []);
+
+	return null;
+};
+
+/**
+ * アプリケーションの基本レイアウトを定義するコンポーネント。
+ * ナビゲーション、メインコンテンツ、フッターを含みます。
+ *
+ * @param {Object} props - コンポーネントのプロパティ
+ * @param {ReactNode} props.children - レイアウト内に表示される子要素
+ * @returns {JSX.Element} アプリケーションのレイアウト
+ */
 const Layout = (props: { children: ReactNode }) => (
 	<div className="min-h-screen flex flex-col">
 		<Navigation />
@@ -38,6 +80,12 @@ const Layout = (props: { children: ReactNode }) => (
 	</div>
 );
 
+/**
+ * アプリケーションのメタデータを定義します。
+ * タイトルと説明を設定しています。
+ *
+ * @type {MetaFunction}
+ */
 export const meta: MetaFunction = () => [
 	{ title: "Remix 🤝 MDX" },
 	{
@@ -46,6 +94,13 @@ export const meta: MetaFunction = () => [
 	},
 ];
 
+/**
+ * アプリケーションのルートコンポーネント。
+ * HTMLの基本構造、メタデータ、スクリプト、スタイルを設定し、
+ * アプリケーションの全体的な構造を定義します。
+ *
+ * @returns {JSX.Element} アプリケーションのルート要素
+ */
 export default function App() {
 	return (
 		<html lang="ja">
@@ -56,18 +111,7 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-						(function() {
-							var savedTheme = localStorage.getItem('theme');
-							if (savedTheme === 'dark' || (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-								document.documentElement.classList.add('dark');
-							}
-						})();
-					`,
-					}}
-				/>
+				<ThemeInitializer />
 				<Layout>
 					<Outlet />
 				</Layout>

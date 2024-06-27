@@ -1,6 +1,3 @@
-import { Link } from "@remix-run/react";
-import type { PostMeta } from "~/.server/getPosts";
-
 /**
  * ブログ投稿のプレビューを表示するコンポーネント
  *
@@ -14,6 +11,10 @@ import type { PostMeta } from "~/.server/getPosts";
  * @param {string} props.frontmatter.published - 投稿の公開日
  * @returns {JSX.Element} 投稿プレビューの要素
  */
+
+import { Link } from "@remix-run/react";
+import type { PostMeta } from "~/.server/getPosts";
+
 export const Post = ({ slug, frontmatter }: PostMeta) => {
 	return (
 		<article className="space-y-2">
