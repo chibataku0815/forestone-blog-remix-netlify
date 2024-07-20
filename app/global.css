@@ -3,16 +3,50 @@
 @tailwind utilities;
 
 @layer base {
-  :root {}
-  .dark {}
+  :root {
+    --background: theme('colors.white');
+    --foreground: theme('colors.gray.900');
+
+    --primary: theme('colors.blue.600');
+    --primary-foreground: theme('colors.white');
+
+    --secondary: theme('colors.gray.100');
+    --secondary-foreground: theme('colors.gray.900');
+
+    --accent: theme('colors.blue.100');
+    --accent-foreground: theme('colors.blue.900');
+
+    --destructive: theme('colors.red.500');
+    --destructive-foreground: theme('colors.white');
+
+    --ring: theme('colors.blue.200');
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: theme('colors.gray.900');
+    --foreground: theme('colors.gray.100');
+
+    --primary: theme('colors.blue.400');
+    --primary-foreground: theme('colors.gray.900');
+
+    --secondary: theme('colors.gray.800');
+    --secondary-foreground: theme('colors.gray.100');
+
+    --accent: theme('colors.blue.900');
+    --accent-foreground: theme('colors.blue.100');
+
+    --destructive: theme('colors.red.700');
+    --destructive-foreground: theme('colors.gray.100');
+
+    --ring: theme('colors.gray.700');
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
+    font-family: "Noto Sans JP", sans-serif;
     @apply bg-background text-foreground;
-    font-family: "Noto Sans JP";
   }
 }
