@@ -1,52 +1,66 @@
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: theme('colors.white');
-    --foreground: theme('colors.gray.900');
-
-    --primary: theme('colors.blue.600');
-    --primary-foreground: theme('colors.white');
-
-    --secondary: theme('colors.gray.100');
-    --secondary-foreground: theme('colors.gray.900');
-
-    --accent: theme('colors.blue.100');
-    --accent-foreground: theme('colors.blue.900');
-
-    --destructive: theme('colors.red.500');
-    --destructive-foreground: theme('colors.white');
-
-    --ring: theme('colors.blue.200');
-
+    --background: var(--mauve1);
+    --foreground: var(--mauve12);
+    --primary: var(--violet9);
+    --primary-foreground: var(--violet1);
+    --secondary: var(--mauve3);
+    --secondary-foreground: var(--mauve11);
+    --muted: var(--mauve3);
+    --muted-foreground: var(--mauve11);
+    --accent: var(--violet3);
+    --accent-foreground: var(--violet11);
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: theme('colors.gray.900');
-    --foreground: theme('colors.gray.100');
-
-    --primary: theme('colors.blue.400');
-    --primary-foreground: theme('colors.gray.900');
-
-    --secondary: theme('colors.gray.800');
-    --secondary-foreground: theme('colors.gray.100');
-
-    --accent: theme('colors.blue.900');
-    --accent-foreground: theme('colors.blue.100');
-
-    --destructive: theme('colors.red.700');
-    --destructive-foreground: theme('colors.gray.100');
-
-    --ring: theme('colors.gray.700');
+    --background: var(--mauveDark1);
+    --foreground: var(--mauveDark12);
+    --primary: var(--violetDark9);
+    --primary-foreground: var(--violetDark1);
+    --secondary: var(--mauveDark3);
+    --secondary-foreground: var(--mauveDark11);
+    --muted: var(--mauveDark3);
+    --muted-foreground: var(--mauveDark11);
+    --accent: var(--violetDark3);
+    --accent-foreground: var(--violetDark11);
   }
 }
 
-@layer base {
-  body {
-    font-family: "Noto Sans JP", sans-serif;
-    @apply bg-background text-foreground;
-  }
+/* 追加のグローバルスタイル */
+body {
+  @apply bg-background text-foreground;
+}
+
+/* アクセシビリティのためのフォーカススタイル */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
+
+/* スクロールバーのカスタマイズ（オプション） */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+/* リンクのスタイル */
+a {
+  @apply text-primary hover:text-primary-foreground transition-colors;
+}
+
+/* 見出しのスタイル */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-foreground;
 }

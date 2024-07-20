@@ -19,9 +19,9 @@ import {
 import type { MetaFunction } from "@remix-run/react";
 import type { ReactNode } from "react";
 import type { LinksFunction } from "@remix-run/node";
-import { useEffect } from "react";
 import "~/global.css";
 import { Navigation } from "~/components/ui/navigation";
+import { ThemeProvider } from "next-themes";
 
 /**
  * アプリケーションで使用するリンクを定義します。
@@ -35,24 +35,6 @@ export const links: LinksFunction = () => [
 		href: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap",
 	},
 ];
-
-/**
- * テーマの初期化を行うコンポーネント
- */
-const ThemeInitializer = () => {
-	useEffect(() => {
-		const savedTheme = localStorage.getItem("theme");
-		if (
-			savedTheme === "dark" ||
-			(savedTheme === "system" &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches)
-		) {
-			document.documentElement.classList.add("dark");
-		}
-	}, []);
-
-	return null;
-};
 
 /**
  * アプリケーションの基本レイアウトを定義するコンポーネント。
@@ -103,7 +85,7 @@ export const meta: MetaFunction = () => [
  */
 export default function App() {
 	return (
-		<html lang="ja">
+		<html lang="ja" suppressHydrationWarning>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -111,13 +93,14 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
-				<ThemeInitializer />
-				<Layout>
-					<Outlet />
-				</Layout>
-				<ScrollRestoration />
-				<Scripts />
-				<LiveReload />
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					<Layout>
+						<Outlet />
+					</Layout>
+					<ScrollRestoration />
+					<Scripts />
+					<LiveReload />
+				</ThemeProvider>
 			</body>
 		</html>
 	);

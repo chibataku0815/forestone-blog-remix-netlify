@@ -1,5 +1,5 @@
 import typography from "@tailwindcss/typography";
-import colors from "tailwindcss/colors";
+import { mauve, violet, blackA, whiteA, mauveDark, violetDark } from "@radix-ui/colors";
 
 module.exports = {
   darkMode: ["class"],
@@ -12,25 +12,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...colors,
+        ...mauve,
+        ...violet,
+        ...blackA,
+        ...whiteA,
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
-        },
-        secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
-        },
-        accent: {
-          DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)",
-        },
-        destructive: {
-          DEFAULT: "var(--destructive)",
-          foreground: "var(--destructive-foreground)",
-        },
+        primary: "var(--primary)",
+        "primary-foreground": "var(--primary-foreground)",
+        secondary: "var(--secondary)",
+        "secondary-foreground": "var(--secondary-foreground)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
+        accent: "var(--accent)",
+        "accent-foreground": "var(--accent-foreground)",
       },
       borderRadius: {
         lg: "var(--radius)",

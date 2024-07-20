@@ -10,8 +10,8 @@
  */
 
 "use client";
+import { useTheme } from "next-themes";
 import { Button } from "./button";
-import { useTheme } from "~/hooks/useTheme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faSun,
@@ -19,14 +19,20 @@ import {
 	faLaptop,
 	faCircleQuestion,
 } from "@fortawesome/pro-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 export const ThemeToggle = () => {
 	const { theme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
 
-	/**
-	 * テーマを切り替える関数
-	 * システム設定 -> ライトモード -> ダークモードの順に切り替わります。
-	 */
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) {
+		return null;
+	}
+
 	const toggleTheme = () => {
 		if (theme === "system") {
 			setTheme("light");
@@ -37,10 +43,6 @@ export const ThemeToggle = () => {
 		}
 	};
 
-	/**
-	 * 現在のテーマに応じたアイコンを返す関数
-	 * @returns {IconDefinition} テーマに対応するFontAwesomeアイコン
-	 */
 	const getThemeIcon = () => {
 		switch (theme) {
 			case "system":
@@ -54,10 +56,6 @@ export const ThemeToggle = () => {
 		}
 	};
 
-	/**
-	 * 現在のテーマに応じたテキストを返す関数
-	 * @returns {string} テーマの日本語表示名
-	 */
 	const getThemeText = () => {
 		switch (theme) {
 			case "system":

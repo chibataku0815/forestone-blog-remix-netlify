@@ -8,7 +8,6 @@
 import { useState, useEffect } from "react";
 import { Drawer, DrawerContent, DrawerTrigger } from "~/components/ui/drawer";
 import { Button } from "~/components/ui/button";
-import { NavLink } from "@remix-run/react";
 
 /**
  * ナビゲーションドロワーを表示するコンポーネント
