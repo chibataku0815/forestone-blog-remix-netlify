@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
 import { NavLink } from "@remix-run/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/pro-solid-svg-icons";
 
 export function HamburgerMenu() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -9,8 +11,8 @@ export function HamburgerMenu() {
 	return (
 		<Sheet open={isOpen} onOpenChange={setIsOpen}>
 			<SheetTrigger asChild>
-				<Button variant="outline" onClick={() => setIsOpen(true)}>
-					☰
+				<Button variant="ghost" onClick={() => setIsOpen(true)}>
+					<FontAwesomeIcon icon={faBars} />
 				</Button>
 			</SheetTrigger>
 			<SheetContent side="left">

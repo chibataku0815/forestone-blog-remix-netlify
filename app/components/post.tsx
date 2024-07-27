@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 /**
  * ブログ投稿のプレビューを表示するコンポーネント
  *
@@ -16,6 +18,8 @@ import { Link } from "@remix-run/react";
 import type { PostMeta } from "~/.server/getPosts";
 
 export const Post = ({ slug, frontmatter }: PostMeta) => {
+	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
+
 	return (
 		<article className="space-y-2">
 			<Link to={`/blog/${slug}`}>
@@ -26,7 +30,7 @@ export const Post = ({ slug, frontmatter }: PostMeta) => {
 				className="block text-sm text-cyan-700"
 				dateTime={frontmatter.published}
 			>
-				{frontmatter.published}
+				{formattedDate}
 			</time>
 		</article>
 	);
