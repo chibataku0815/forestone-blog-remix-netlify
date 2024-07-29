@@ -12,11 +12,6 @@ import { Navigation } from "./components/ui/navigation";
 const Layout = (props: { children: ReactNode }) => (
 	<div className="min-h-screen flex flex-col bg-background">
 		<Navigation />
-		<header className="bg-header shadow-sm">
-			<div className="max-w-content mx-auto px-md py-sm">
-				<h1 className="text-2xl text-default">マイブログ</h1>
-			</div>
-		</header>
 		<main className="w-full max-w-7xl mx-auto flex-1 flex mt-16 md:mt-0 mb-16 md:mb-0">
 			{props.children}
 		</main>
