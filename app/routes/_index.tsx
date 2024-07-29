@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/.server/getPosts";
 import { Post } from "~/components/post";
-import { Badge } from "~/components/ui/badge";
+import { Badge } from "~/components/ui/Badge/badge";
 
 /**
  * インデックスページのコンポーネント
