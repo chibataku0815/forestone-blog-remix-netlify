@@ -51,11 +51,19 @@ export default function Index() {
 			<div className="space-y-4">
 				<h2 className="text-xl font-bold">Default Badges</h2>
 				<div className="flex gap-2">
-					<Badge>Default</Badge>
-					<Badge variant="success">Success</Badge>
-					<Badge variant="warning">Warning</Badge>
-					<Badge variant="destructive">Destructive</Badge>
-					<Badge variant="outline">Outline</Badge>
+					<Badge>Default Solid</Badge>
+					<Badge variant="soft" color="destructive">
+						Soft Destructive
+					</Badge>
+					<Badge variant="solid" color="success">
+						Solid Success
+					</Badge>
+					<Badge variant="outline" color="warning">
+						Outline Warning
+					</Badge>
+					<Badge variant="soft" color="info">
+						Soft Info
+					</Badge>
 				</div>
 			</div>
 			<div className="space-y-8">
