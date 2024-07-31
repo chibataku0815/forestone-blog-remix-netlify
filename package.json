@@ -9,7 +9,7 @@
 		"lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
 		"start": "netlify serve",
 		"storybook": "storybook dev -p 6006 --ci",
-		"build-storybook": "storybook build",
+		"build-storybook": "storybook build -o build/client/storybook-static",
 		"typecheck": "tsc"
 	},
 	"dependencies": {
