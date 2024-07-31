@@ -25,6 +25,10 @@ const config: Config = {
     ({ addBase }: PluginAPI) => {
       addBase({
         ':root': {
+          '--destructive-border': colors.destructive.border,
+          '--success-border': colors.success.border,
+          '--warning-border': colors.warning.border,
+          '--info-border': colors.info.border,
         }
       });
     },
