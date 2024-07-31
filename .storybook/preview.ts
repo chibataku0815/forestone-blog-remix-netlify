@@ -1,5 +1,7 @@
-import type { Preview } from "@storybook/react";
+import type { Decorator, Preview } from "@storybook/react";
 import "../app/global.css";
+import { ThemeDecorator } from "./ThemeDecorator";
+
 
 const preview: Preview = {
   parameters: {
@@ -9,7 +11,17 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    darkMode: {
+      current: 'light',
+      stylePreview: true,
+      darkClass: 'dark',
+      lightClass: 'light',
+      classTarget: 'html',
+      dark: { appBg: 'black' },
+      light: { appBg: 'white' },
+    },
   },
+  decorators: [ThemeDecorator as Decorator],
 };
 
 export default preview;

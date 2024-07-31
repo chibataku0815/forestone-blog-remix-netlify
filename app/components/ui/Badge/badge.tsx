@@ -6,9 +6,10 @@ const badgeVariants = cva(
 	{
 		variants: {
 			variant: {
-				soft: "",
-				solid: "",
-				outline: "bg-background",
+				soft: "bg-muted text-muted-foreground",
+				solid: "bg-solid text-solid",
+				surface: "bg-surface text-surface-foreground",
+				outline: "bg-background border border-border text-foreground",
 			},
 			color: {
 				default: "",
@@ -22,88 +23,89 @@ const badgeVariants = cva(
 			// Soft variants
 			{
 				variant: "soft",
-				color: "default",
-				class: "bg-background-muted text-foreground-muted",
-			},
-			{
-				variant: "soft",
 				color: "destructive",
-				class: "bg-destructive-background text-destructive-foreground",
+				class: "bg-destructive text-destructive-foreground",
 			},
 			{
 				variant: "soft",
 				color: "success",
-				class: "bg-success-background text-success-foreground",
+				class: "bg-success text-success-foreground",
 			},
 			{
 				variant: "soft",
 				color: "warning",
-				class: "bg-warning-background text-warning-foreground",
+				class: "bg-warning text-warning-foreground",
 			},
 			{
 				variant: "soft",
 				color: "info",
-				class: "bg-info-background text-info-foreground",
+				class: "bg-info text-info-foreground",
 			},
 			// Solid variants
 			{
 				variant: "solid",
-				color: "default",
-				class: "bg-foreground text-background hover:bg-foreground/90",
-			},
-			{
-				variant: "solid",
 				color: "destructive",
-				class:
-					"bg-destructive-foreground text-destructive-background hover:bg-destructive-foreground/90",
+				class: "bg-solid-destructive text-solid-destructive",
 			},
 			{
 				variant: "solid",
 				color: "success",
 				class:
-					"bg-success-foreground text-success-background hover:bg-success-foreground/90",
+					"bg-success-foreground text-success hover:bg-success-foreground/90",
 			},
 			{
 				variant: "solid",
 				color: "warning",
 				class:
-					"bg-warning-foreground text-warning-background hover:bg-warning-foreground/90",
+					"bg-warning-foreground text-warning hover:bg-warning-foreground/90",
 			},
 			{
 				variant: "solid",
 				color: "info",
-				class:
-					"bg-info-foreground text-info-background hover:bg-info-foreground/90",
+				class: "bg-info-foreground text-info hover:bg-info-foreground/90",
+			},
+			// Surface variants
+			{
+				variant: "surface",
+				color: "destructive",
+				class: "text-destructive-foreground",
+			},
+			{
+				variant: "surface",
+				color: "success",
+				class: "text-success-foreground",
+			},
+			{
+				variant: "surface",
+				color: "warning",
+				class: "text-warning-foreground",
+			},
+			{
+				variant: "surface",
+				color: "info",
+				class: "text-info-foreground",
 			},
 			// Outline variants
 			{
 				variant: "outline",
-				color: "default",
-				class: "border border-border text-foreground hover:bg-background-hover",
-			},
-			{
-				variant: "outline",
 				color: "destructive",
 				class:
-					"border border-destructive-border text-destructive-foreground hover:bg-destructive-background/10",
+					"border-destructive text-destructive-foreground hover:bg-destructive/10",
 			},
 			{
 				variant: "outline",
 				color: "success",
-				class:
-					"border border-success-border text-success-foreground hover:bg-success-background/10",
+				class: "border-success text-success-foreground hover:bg-success/10",
 			},
 			{
 				variant: "outline",
 				color: "warning",
-				class:
-					"border border-warning-border text-warning-foreground hover:bg-warning-background/10",
+				class: "border-warning text-warning-foreground hover:bg-warning/10",
 			},
 			{
 				variant: "outline",
 				color: "info",
-				class:
-					"border border-info-border text-info-foreground hover:bg-info-background/10",
+				class: "border-info text-info-foreground hover:bg-info/10",
 			},
 		],
 		defaultVariants: {

@@ -8,7 +8,7 @@ const meta: Meta<typeof Badge> = {
 	argTypes: {
 		variant: {
 			control: "select",
-			options: ["soft", "solid", "outline"],
+			options: ["soft", "outline", "solid", "surface"],
 		},
 		color: {
 			control: "select",
@@ -35,7 +35,7 @@ export const Default: Story = {
 
 export const AllVariants: Story = {
 	render: (args) => (
-		<div className="flex flex-wrap gap-2">
+		<div className="flex flex-wrap gap-2 bg-surface">
 			{["soft", "solid", "outline"].map((variant) =>
 				["default", "destructive", "success", "warning", "info"].map(
 					(color) => (
