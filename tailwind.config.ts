@@ -1,6 +1,12 @@
+/**
+ * @fileoverview This file tailwind.config.ts defines the color palette for the application using Radix UI colors.
+ * It includes both light and dark mode colors and provides utility functions to define colors.
+ * @file tailwind.config.ts
+ */
+
 import typography from "@tailwindcss/typography";
 import type { Config } from 'tailwindcss'
-import colors, { extendedColors }  from "./tailwind/colors";
+import colors  from "./tailwind/colors";
 import type { PluginAPI } from "tailwindcss/types/config";
 import {
   mauve, violet, red, green, blue, orange,
@@ -28,6 +34,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      /**
+       * The main color palette for the application.
+       * It includes colors for different states like muted, accent, destructive, success, warning, and info.
+       * Each state has a default color and an "is-default" color for different contexts.
+      */
       colors: {
         muted: {
           DEFAULT: defineColor(mauve.mauve3, mauveDark.mauve3),
@@ -61,6 +72,10 @@ const config: Config = {
         input: defineColor(mauve.mauve6, mauveDark.mauve6),
         ring: defineColor(violet.violet8, violetDark.violet8),
       },
+      /**
+       * Extended color palette for the application.
+       * It includes CSS variable-based colors for background, text, and border.
+      */
       backgroundColor: {
         soft: 'var(--soft-background)',
         solid: 'var(--solid-background)',
@@ -84,6 +99,10 @@ const config: Config = {
   plugins: [
     require("tailwindcss-animate"),
     typography,
+    /**
+     * Custom plugin to add CSS variables for border colors.
+     * This plugin adds CSS variables for border colors based on the color palette.
+     */
     ({ addBase }: PluginAPI) => {
       addBase({
         ':root': {

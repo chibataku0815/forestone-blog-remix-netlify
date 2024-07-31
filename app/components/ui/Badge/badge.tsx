@@ -63,7 +63,7 @@ const badgeVariants = cva(
 				variant: "solid",
 				color: "destructive",
 				class:
-					"bg-solid-destructive text-destructive-is-default hover:bg-solid-destructive",
+					"bg-destructive-is-default text-destructive hover:bg-destructive-is-default",
 			},
 			{
 				variant: "solid",
