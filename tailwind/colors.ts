@@ -1,74 +1,66 @@
 // colors.ts
 import {
   mauve, violet, red, green, blue, orange,
-  mauveDark, violetDark, redDark, greenDark, blueDark, orangeDark
+  mauveDark, violetDark, redDark, greenDark, blueDark, orangeDark,
+  redDarkA,
+  greenDarkA,
+  orangeDarkA,
+  blueDarkA
 } from "@radix-ui/colors";
 
 const defineColor = (lightColor: string, darkColor: string) =>
   `light-dark(${lightColor}, ${darkColor})`;
 
 export const colors = {
-  background: {
-    DEFAULT: defineColor(mauve.mauve1, mauveDark.mauve1),
-    hover: defineColor(mauve.mauve2, mauveDark.mauve2),
-    focus: defineColor(mauve.mauve3, mauveDark.mauve3),
-    active: defineColor(mauve.mauve3, mauveDark.mauve3),
-    disabled: defineColor(mauve.mauve1, mauveDark.mauve1),
-  },
-  foreground: {
-    DEFAULT: defineColor(mauve.mauve12, mauveDark.mauve12),
-    hover: defineColor(mauve.mauve11, mauveDark.mauve11),
-    focus: defineColor(mauve.mauve10, mauveDark.mauve10),
-    active: defineColor(mauve.mauve10, mauveDark.mauve10),
-    disabled: defineColor(mauve.mauve9, mauveDark.mauve9),
-  },
   muted: {
     DEFAULT: defineColor(mauve.mauve3, mauveDark.mauve3),
-    foreground: defineColor(mauve.mauve11, mauveDark.mauve11),
+    'is-default': defineColor(mauve.mauve11, mauveDark.mauve11),
   },
   accent: {
     DEFAULT: defineColor(violet.violet9, violetDark.violet9),
-    foreground: defineColor(violet.violet12, violetDark.violet12),
+    'is-default': defineColor(violet.violet12, violetDark.violet12),
   },
   destructive: {
-    DEFAULT: defineColor(red.red9, redDark.red9),
-    foreground: defineColor(red.red12, redDark.red12),
+    DEFAULT: defineColor(red.red2, redDarkA.redA2),
+    'is-default': defineColor(red.red11, redDark.red11),
+    border: defineColor(red.red6, redDark.red6),
   },
   success: {
-    DEFAULT: defineColor(green.green9, greenDark.green9),
-    foreground: defineColor(green.green12, greenDark.green12),
+    DEFAULT: defineColor(green.green2, greenDarkA.greenA2),
+    'is-default': defineColor(green.green11, greenDark.green11),
   },
   warning: {
-    DEFAULT: defineColor(orange.orange9, orangeDark.orange9),
-    foreground: defineColor(orange.orange12, orangeDark.orange12),
+    DEFAULT: defineColor(orange.orange2, orangeDarkA.orangeA2),
+    'is-default': defineColor(orange.orange11, orangeDark.orange11),
   },
   info: {
-    DEFAULT: defineColor(blue.blue9, blueDark.blue9),
-    foreground: defineColor(blue.blue12, blueDark.blue12),
+    DEFAULT: defineColor(blue.blue2, blueDarkA.blueA2),
+    'is-default': defineColor(blue.blue11, blueDark.blue11),
   },
-  border: defineColor(mauve.mauve6, mauveDark.mauve6),
+  border: defineColor(mauve.mauve9, mauveDark.mauve9),
   input: defineColor(mauve.mauve6, mauveDark.mauve6),
   ring: defineColor(violet.violet8, violetDark.violet8),
 };
 
+
 export const variantColors = {
   soft: {
     background: colors.muted.DEFAULT,
-    foreground: colors.muted.foreground,
+    foreground: colors.muted['is-default'],
   },
   solid: {
     background: colors.accent.DEFAULT,
-    foreground: colors.accent.foreground,
+    foreground: colors.accent['is-default'],
   },
   surface: {
-    background: colors.background.DEFAULT,
-    foreground: colors.foreground.DEFAULT,
-    border: colors.border,
+    background: colors.muted.DEFAULT,
+    foreground: colors.muted['is-default'],
+    border: colors.border
   },
   outline: {
-    background: colors.background.DEFAULT,
-    foreground: colors.foreground.DEFAULT,
-    border: colors.border,
+    background: 'transparent',
+    foreground: colors.muted.DEFAULT,
+    border: colors.border
   },
 };
 
@@ -80,14 +72,16 @@ export const extendedColors = {
     outline: 'var(--outline-background)',
   },
   textColor: {
-    'soft-foreground': 'var(--soft-foreground)',
-    'solid-foreground': 'var(--solid-foreground)',
-    'surface-foreground': 'var(--surface-foreground)',
-    'outline-foreground': 'var(--outline-foreground)',
+    'soft': 'var(--soft-foreground)',
+    'solid': 'var(--solid-foreground)',
+    'surface': 'var(--surface-foreground)',
+    'outline': 'var(--outline-foreground)',
   },
   borderColor: {
-    surface: 'var(--surface-border)',
-    outline: 'var(--outline-border)',
+    destructive: 'var(--destructive-border)',
+    success: 'var(--success-border)',
+    warning: 'var(--warning-border)',
+    info: 'var(--info-border)',
   },
 };
 

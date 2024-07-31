@@ -6,10 +6,11 @@ const badgeVariants = cva(
 	{
 		variants: {
 			variant: {
-				soft: "bg-muted text-muted-foreground",
-				solid: "bg-solid text-solid",
-				surface: "bg-surface text-surface-foreground",
-				outline: "bg-background border border-border text-foreground",
+				soft: "bg-muted text-muted-is-default",
+				solid: "bg-solid text-solid-is-default",
+				surface:
+					"bg-surface text-surface-is-default border border-surface-border",
+				outline: "border border-outline text-outline-is-default",
 			},
 			color: {
 				default: "",
@@ -24,88 +25,87 @@ const badgeVariants = cva(
 			{
 				variant: "soft",
 				color: "destructive",
-				class: "bg-destructive text-destructive-foreground",
+				class: "bg-destructive text-destructive-is-default",
 			},
 			{
 				variant: "soft",
 				color: "success",
-				class: "bg-success text-success-foreground",
+				class: "bg-success text-success-is-default",
 			},
 			{
 				variant: "soft",
 				color: "warning",
-				class: "bg-warning text-warning-foreground",
+				class: "bg-warning text-warning-is-default",
 			},
 			{
 				variant: "soft",
 				color: "info",
-				class: "bg-info text-info-foreground",
+				class: "bg-info text-info-is-default",
 			},
 			// Solid variants
 			{
 				variant: "solid",
 				color: "destructive",
-				class: "bg-solid-destructive text-solid-destructive",
+				class:
+					"bg-solid-destructive text-destructive-is-default hover:bg-solid-destructive",
 			},
 			{
 				variant: "solid",
 				color: "success",
-				class:
-					"bg-success-foreground text-success hover:bg-success-foreground/90",
+				class: "bg-success-is-default text-success hover:bg-success-is-default",
 			},
 			{
 				variant: "solid",
 				color: "warning",
-				class:
-					"bg-warning-foreground text-warning hover:bg-warning-foreground/90",
+				class: "bg-warning-is-default text-warning hover:bg-warning-is-default",
 			},
 			{
 				variant: "solid",
 				color: "info",
-				class: "bg-info-foreground text-info hover:bg-info-foreground/90",
+				class: "bg-info-is-default text-info hover:bg-info-is-default",
 			},
 			// Surface variants
 			{
 				variant: "surface",
 				color: "destructive",
-				class: "text-destructive-foreground",
+				class: "text-destructive-is-default",
 			},
 			{
 				variant: "surface",
 				color: "success",
-				class: "text-success-foreground",
+				class: "text-success-is-default",
 			},
 			{
 				variant: "surface",
 				color: "warning",
-				class: "text-warning-foreground",
+				class: "text-warning-is-default",
 			},
 			{
 				variant: "surface",
 				color: "info",
-				class: "text-info-foreground",
+				class: "text-info-is-default",
 			},
 			// Outline variants
 			{
 				variant: "outline",
 				color: "destructive",
 				class:
-					"border-destructive text-destructive-foreground hover:bg-destructive/10",
+					"border-destructive text-destructive-is-default hover:bg-destructive",
 			},
 			{
 				variant: "outline",
 				color: "success",
-				class: "border-success text-success-foreground hover:bg-success/10",
+				class: "text-success-is-default hover:bg-success",
 			},
 			{
 				variant: "outline",
 				color: "warning",
-				class: "border-warning text-warning-foreground hover:bg-warning/10",
+				class: "text-warning-is-default hover:bg-warning",
 			},
 			{
 				variant: "outline",
 				color: "info",
-				class: "border-info text-info-foreground hover:bg-info/10",
+				class: "text-info-is-default hover:bg-info",
 			},
 		],
 		defaultVariants: {

@@ -2,31 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --semantic-color-info: var(--semantic-color-info);
-  --semantic-color-info-hover: var(--semantic-color-info-hover);
-  --semantic-color-info-focus: var(--semantic-color-info-focus);
-  --semantic-color-info-active: var(--semantic-color-info-active);
-  --semantic-color-info-disabled: var(--semantic-color-info-disabled);
-
-  --semantic-color-error: var(--semantic-color-error);
-  --semantic-color-error-hover: var(--semantic-color-error-hover);
-  --semantic-color-error-focus: var(--semantic-color-error-focus);
-  --semantic-color-error-active: var(--semantic-color-error-active);
-  --semantic-color-error-disabled: var(--semantic-color-error-disabled);
-
-  --semantic-color-success: var(--semantic-color-success);
-  --semantic-color-success-hover: var(--semantic-color-success-hover);
-  --semantic-color-success-focus: var(--semantic-color-success-focus);
-  --semantic-color-success-active: var(--semantic-color-success-active);
-  --semantic-color-success-disabled: var(--semantic-color-success-disabled);
-
-  --semantic-color-warning: var(--semantic-color-warning);
-  --semantic-color-warning-hover: var(--semantic-color-warning-hover);
-  --semantic-color-warning-focus: var(--semantic-color-warning-focus);
-  --semantic-color-warning-active: var(--semantic-color-warning-active);
-  --semantic-color-warning-disabled: var(--semantic-color-warning-disabled);
-}
+:root {}
 
 .dark {
   color-scheme: dark;

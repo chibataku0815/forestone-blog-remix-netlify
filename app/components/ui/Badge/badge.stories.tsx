@@ -27,8 +27,8 @@ type Story = StoryObj<typeof Badge>;
 export const Default: Story = {
 	args: {
 		children: "Badge",
-		variant: "soft",
-		color: "default",
+		variant: "outline",
+		color: "destructive",
 	},
 	render: (args) => <Badge {...args} />,
 };
