@@ -61,9 +61,24 @@ const config: Config = {
         input: defineColor(mauve.mauve6, mauveDark.mauve6),
         ring: defineColor(violet.violet8, violetDark.violet8),
       },
-      backgroundColor: extendedColors.backgroundColor,
-      textColor: extendedColors.textColor,
-      borderColor: extendedColors.borderColor,
+      backgroundColor: {
+        soft: 'var(--soft-background)',
+        solid: 'var(--solid-background)',
+        surface: 'var(--surface-background)',
+        outline: 'var(--outline-background)',
+      },
+      textColor: {
+        soft: 'var(--soft-foreground)',
+        solid: 'var(--solid-foreground)',
+        surface: 'var(--surface-foreground)',
+        outline: 'var(--outline-foreground)',
+      },
+      borderColor: {
+        destructive: 'var(--destructive-border)',
+        success: 'var(--success-border)',
+        warning: 'var(--warning-border)',
+        info: 'var(--info-border)',
+      },
     },
   },
   plugins: [
