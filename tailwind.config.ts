@@ -12,12 +12,6 @@ const config: Config = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    extend: {
-      colors: colors,
-      backgroundColor: extendedColors.backgroundColor,
-      textColor: extendedColors.textColor,
-      borderColor: extendedColors.borderColor,
-    },
   },
   plugins: [
   ],
