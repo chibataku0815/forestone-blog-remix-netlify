@@ -61,6 +61,9 @@ const config: Config = {
         input: defineColor(mauve.mauve6, mauveDark.mauve6),
         ring: defineColor(violet.violet8, violetDark.violet8),
       },
+      backgroundColor: extendedColors.backgroundColor,
+      textColor: extendedColors.textColor,
+      borderColor: extendedColors.borderColor,
     },
   },
   plugins: [
