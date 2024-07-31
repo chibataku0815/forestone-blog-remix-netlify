@@ -12,13 +12,3 @@ framework = "vite"
 for = "/build/*"
 [headers.values]
 Cache-Control = "public, max-age=31560000, immutable"
-
-[[headers]]
-for = "/build/client/storybook-static/*"
-[headers.values]
-Cache-Control = "public, max-age=31560000, immutable"
-
-[[redirects]]
-from = "/storybook"
-to = "/build/client/storybook-static"
-status = 200
