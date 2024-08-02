@@ -6,7 +6,6 @@
 
 import typography from "@tailwindcss/typography";
 import type { Config } from 'tailwindcss'
-import colors  from "./tailwind/colors";
 import type { PluginAPI } from "tailwindcss/types/config";
 import {
   mauve, violet, red, green, blue, orange,
@@ -103,13 +102,13 @@ const config: Config = {
      * Custom plugin to add CSS variables for border colors.
      * This plugin adds CSS variables for border colors based on the color palette.
      */
-    ({ addBase }: PluginAPI) => {
+    ({ addBase, theme }: PluginAPI) => {
       addBase({
         ':root': {
-          '--destructive-border': colors.destructive.border,
-          '--success-border': colors.success.border,
-          '--warning-border': colors.warning.border,
-          '--info-border': colors.info.border,
+          '--destructive-border': theme('colors.destructive.border'),
+          '--success-border': theme('colors.success.border'),
+          '--warning-border': theme('colors.warning.border'),
+          '--info-border': theme('colors.info.border'),
         }
       });
     },

@@ -48,24 +48,6 @@ export default function Index() {
 
 	return (
 		<div className="flex-1 px-3 grid gap-16 sm:place-items-center">
-			<div className="space-y-4">
-				<h2 className="text-xl font-bold">Default Badges</h2>
-				<div className="flex gap-2">
-					<Badge>Default Solid</Badge>
-					<Badge variant="soft" color="destructive">
-						Soft Destructive
-					</Badge>
-					<Badge variant="solid" color="success">
-						Solid Success
-					</Badge>
-					<Badge variant="outline" color="warning">
-						Outline Warning
-					</Badge>
-					<Badge variant="soft" color="info">
-						Soft Info
-					</Badge>
-				</div>
-			</div>
 			<div className="space-y-8">
 				<section>
 					<ul className="grid gap-16">
