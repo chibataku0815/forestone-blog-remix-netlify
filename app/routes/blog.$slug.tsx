@@ -50,13 +50,15 @@ export default function BlogPost() {
 	const Component = useMemo(() => getMDXComponent(code), [code]);
 
 	return (
-		<article className="prose lg:prose-xl dark:prose-invert mx-auto py-8 px-4">
+		<article className="prose prose-2xl dark:prose-invert mx-auto py-8 px-4">
 			{/* 記事のタイトルを表示 */}
 			<h1>{frontmatter.title}</h1>
 			{/* 記事の公開日を表示 */}
-			<p className="text-sm text-gray-500">{frontmatter.published}</p>
+			<p className="">{frontmatter.published}</p>
 			{/* MDXコンポーネントを表示し、カウンターコンポーネントを埋め込む */}
-			<Component />
+			<div className="overflow-x-auto">
+				<Component />
+			</div>
 		</article>
 	);
 }

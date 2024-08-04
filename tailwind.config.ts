@@ -93,15 +93,119 @@ const config: Config = {
         warning: 'var(--warning-border)',
         info: 'var(--info-border)',
       },
+      letterSpacing: {
+        wider: '0.2em',
+        widest: '0.3em',
+      },
+      lineHeight: {
+        'tight': '1.2',
+        'snug': '1.375',
+        'normal': '1.5',
+        'relaxed': '1.625',
+        'loose': '2',
+        'extra-loose': '2.5',
+        'super-loose': '3',
+      },
+      typography: ({theme}: PluginAPI) => ({
+        DEFAULT: {
+          css: {
+            'h1': {
+              letterSpacing: theme('letterSpacing.wider'),
+              lineHeight: theme('lineHeight.tight'),
+              fontSize: '2.25rem', // 36px
+              '@screen md': {
+                fontSize: '3rem', // 48px
+              },
+            },
+            'h2': {
+              letterSpacing: theme('letterSpacing.wide'),
+              lineHeight: theme('lineHeight.snug'),
+              fontSize: '1.875rem', // 30px
+              '@screen md': {
+                fontSize: '2.25rem', // 36px
+              },
+            },
+            'h3': {
+              letterSpacing: theme('letterSpacing.wide'),
+              lineHeight: theme('lineHeight.normal'),
+              fontSize: '1.5rem', // 24px
+              '@screen md': {
+                fontSize: '1.875rem', // 30px
+              },
+            },
+            'h4': {
+              letterSpacing: theme('letterSpacing.wide'),
+              lineHeight: theme('lineHeight.normal'),
+              fontSize: '1.25rem', // 20px
+              '@screen md': {
+                fontSize: '1.5rem', // 24px
+              },
+            },
+            'h5, h6': {
+              letterSpacing: theme('letterSpacing.normal'),
+              lineHeight: theme('lineHeight.relaxed'),
+              fontSize: '1.125rem', // 18px
+              '@screen md': {
+                fontSize: '1.25rem', // 20px
+              },
+            },
+            'p': {
+              lineHeight: theme('lineHeight.relaxed'),
+              fontSize: '1rem', // 16px
+            },
+          },
+        },
+        '2xl': {
+          css: {
+            'h1': {
+              lineHeight: theme('lineHeight.snug'),
+              fontSize: '3rem', // 48px
+              '@screen md': {
+                fontSize: '3.75rem', // 60px
+              },
+            },
+            'h2': {
+              lineHeight: theme('lineHeight.normal'),
+              fontSize: '2.25rem', // 36px
+              '@screen md': {
+                fontSize: '3rem', // 48px
+              },
+            },
+            'h3': {
+              lineHeight: theme('lineHeight.relaxed'),
+              fontSize: '1.875rem', // 30px
+              '@screen md': {
+                fontSize: '2.25rem', // 36px
+              },
+            },
+            'h4': {
+              lineHeight: theme('lineHeight.relaxed'),
+              fontSize: '1.5rem', // 24px
+              '@screen md': {
+                fontSize: '1.875rem', // 30px
+              },
+            },
+            'h5, h6': {
+              lineHeight: theme('lineHeight.loose'),
+              fontSize: '1.25rem', // 20px
+              '@screen md': {
+                fontSize: '1.5rem', // 24px
+              },
+            },
+            'p': {
+              lineHeight: theme('lineHeight.loose'),
+              fontSize: '1.125rem', // 18px
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    typography,
-    /**
-     * Custom plugin to add CSS variables for border colors.
-     * This plugin adds CSS variables for border colors based on the color palette.
-     */
+    typography({
+      className: 'prose',
+    }),
     ({ addBase, theme }: PluginAPI) => {
       addBase({
         ':root': {
@@ -109,7 +213,7 @@ const config: Config = {
           '--success-border': theme('colors.success.border'),
           '--warning-border': theme('colors.warning.border'),
           '--info-border': theme('colors.info.border'),
-        }
+        },
       });
     },
   ],

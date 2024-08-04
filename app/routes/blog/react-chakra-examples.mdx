@@ -1,0 +1,97 @@
+---
+title: Chakra-UIを試す(React)
+author: Chiba Takumi
+tags: ['#react', '#chakra-ui', '#tips']
+published: 2021-07-25
+featured: true
+---
+
+### パッケージをインストール
+
+```terminal
+yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+```
+
+----
+
+### Providerの設定
+
+` ChakraProvider ` をトップレベルで設定
+
+```ts
+// index.ts
+import { ChakraProvider } from "@chakra-ui/react";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import customizedTheme from "theme/index";
+import App from './App';
+import './index.css';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ChakraProvider theme={customizedTheme}>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+----
+
+### Styleショートハンド
+
+styleの値は様々ショートハンドが用意されている。
+
+[Styleショートハンド](https://chakra-ui.com/docs/features/style-props)
+
+
+----
+
+### カラー
+
+[カラー](https://chakra-ui.com/docs/theming/theme#colors)
+
+----
+
+### スペーシングや各種設定値
+
+- spacing
+[スペーシング](https://chakra-ui.com/docs/theming/theme#spacing)
+- Typograph
+[Typograph](https://chakra-ui.com/docs/theming/theme#typograph)
+- Layouts　Sizes
+[Sizes](https://chakra-ui.com/docs/theming/theme#sizes)
+- border-radius
+[border-radius](https://chakra-ui.com/docs/theming/theme#border-radius)
+
+----
+
+### 擬似要素
+
+[擬似要素](https://chakra-ui.com/docs/features/style-props#pseudo)
+
+### レスポンシブ
+
+#### ブレークポイント
+
+[ブレークポイント](https://chakra-ui.com/docs/theming/theme#breakpoints)
+
+1. 配列で設定できる
+2. オブジェクトの形式も可能
+
+```
+sm: "30em", // 480px (16pxの場合。以下同)
+md: "48em", // 768px
+lg: "62em", // 992px
+xl: "80em", // 1280px
+```
+
+[レスポンシブ](https://chakra-ui.com/docs/features/responsive-styles#the-object-syntax)
+
+----
+
+### テーマ
+
+[テーマ](https://chakra-ui.com/docs/theming/theme)
+
