@@ -1,4 +1,3 @@
-// app/.server/posts.tsx
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
@@ -17,13 +16,8 @@ export type PostMeta = {
 	content: string;
 };
 
-/**
- * Retrieves and sorts blog posts by their published date in descending order.
- *
- * @returns {Promise<PostMeta[]>} A promise that resolves to an array of post metadata.
- */
 export const getPosts = async (): Promise<PostMeta[]> => {
-	const postsDirectory = path.join(process.cwd(), "app/routes");
+	const postsDirectory = path.join(process.cwd(), "app/routes/blog");
 	const filenames = fs.readdirSync(postsDirectory);
 
 	const posts = filenames.map((filename) => {
@@ -31,8 +25,7 @@ export const getPosts = async (): Promise<PostMeta[]> => {
 		const fileContents = fs.readFileSync(filePath, "utf8");
 		const { data } = matter(fileContents);
 
-		// Remove 'blog.' prefix from filename
-		const slug = filename.replace(/^blog\./, "").replace(/\.mdx$/, "");
+		const slug = filename.replace(/\.mdx$/, "");
 
 		return {
 			slug,
