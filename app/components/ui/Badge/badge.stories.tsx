@@ -31,6 +31,17 @@ export const Default: Story = {
 		color: "destructive",
 	},
 	render: (args) => <Badge {...args} />,
+	parameters: {
+		docs: {
+			page: () => (
+				<div className="flex flex-wrap gap-2 bg-surface">
+					<Badge>Badge</Badge>
+					<Badge variant="soft">Badge</Badge>
+					<Badge variant="solid">Badge</Badge>
+				</div>
+			),
+		},
+	},
 };
 
 export const AllVariants: Story = {

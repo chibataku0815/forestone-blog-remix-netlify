@@ -14,7 +14,7 @@ export const ThemeDecorator = (Story: React.FC) => {
 
 	return (
 		<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-			<div className="dark:bg-gray-800 dark:text-white min-h-screen">
+			<div className="dark:bg-gray-800 dark:text-white">
 				<Story />
 			</div>
 		</ThemeProvider>

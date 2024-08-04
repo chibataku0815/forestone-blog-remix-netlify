@@ -1,11 +1,27 @@
 {/* Badge.mdx */}
 
-import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Canvas, Meta, Story, Controls } from '@storybook/blocks';
 import { Badge } from './badge';
 import * as BadgeStories from './badge.stories';
 
 <Meta of={BadgeStories} />
 
+# Badge Component
+
+The `Badge` component is used to display a badge with various variants and colors. It is highly customizable and can be used to highlight important information or statuses.
+
+## Table of Contents
+
+- [Badge Component](#badge-component)
+  - [Default Badge](#default-badge)
+  - [All Variants](#all-variants)
+
+# Default Badge
+<Canvas>
+  <Story of={BadgeStories.Default} />
+</Canvas>
+
+<Controls of={BadgeStories.Default} />
 
 ```jsx
 import React from 'react';
@@ -20,22 +36,6 @@ export const Button = ({ children, onClick }) => (
 );
 ```
 
-## Table of Contents
-
-- [Badge Component](#badge-component)
-  - [Examples](#examples)
-    - [Default Badge](#default-badge)
-    - [Soft Destructive Badge](#soft-destructive-badge)
-    - [Solid Success Badge](#solid-success-badge)
-    - [Outline Warning Badge](#outline-warning-badge)
-    - [Soft Info Badge](#soft-info-badge)
-    - [All Variants](#all-variants)
-
-# Badge Component
-
-The `Badge` component is used to display a badge with various variants and colors. It is highly customizable and can be used to highlight important information or statuses.
-
-## Examples
-
+# All Variants
 <Canvas of={BadgeStories.AllVariants} />
 
