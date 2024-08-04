@@ -12,7 +12,6 @@ import { getPosts } from "~/.server/getPosts";
 import { useMemo } from "react";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
-import { Counter } from "~/components/counter";
 
 /**
  * データローダー関数
