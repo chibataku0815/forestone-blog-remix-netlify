@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 /**
  * ブログ投稿のプレビューを表示するコンポーネント
  *
@@ -14,9 +12,15 @@ import { format } from "date-fns";
  * @returns {JSX.Element} 投稿プレビューの要素
  */
 
+import { format } from "date-fns";
 import { Link } from "@remix-run/react";
-import type { PostMeta } from "~/.server/getPosts";
+import type { PostMeta } from "~/types/post";
 
+/**
+ * ブログ投稿のプレビューを表示するコンポーネント
+ * @param {PostMeta} props - 投稿のメタデータとスラッグ
+ * @returns {JSX.Element} 投稿プレビューの要素
+ */
 export const Post = ({ slug, frontmatter }: PostMeta) => {
 	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
 

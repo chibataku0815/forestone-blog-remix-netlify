@@ -1,20 +1,35 @@
+/**
+ * @fileoverview ブログ投稿を取得するためのユーティリティ関数
+ * @file app/.server/getPosts.tsx
+ */
+
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { sortBy } from "lodash-es";
+import type { PostMeta, Frontmatter } from "~/types/post";
 
-export type Frontmatter = {
-	title: string;
-	description: string;
-	published: string; // YYYY-MM-DD
-	featured: boolean;
-};
+/**
+ * フロントマターの型定義
+ * @typedef {Object} Frontmatter
+ * @property {string} title - 投稿のタイトル
+ * @property {string} description - 投稿の説明
+ * @property {string} published - 投稿の公開日 (YYYY-MM-DD)
+ * @property {boolean} featured - フィーチャーされた投稿かどうか
+ */
 
-export type PostMeta = {
-	slug: string;
-	frontmatter: Frontmatter;
-	content: string;
-};
+/**
+ * 投稿メタデータの型定義
+ * @typedef {Object} PostMeta
+ * @property {string} slug - 投稿のスラッグ
+ * @property {Frontmatter} frontmatter - 投稿のフロントマター
+ * @property {string} content - 投稿の内容
+ */
+
+/**
+ * ブログ投稿を取得する関数
+ * @returns {Promise<PostMeta[]>} 投稿メタデータの配列
+ */
 
 export const getPosts = async (): Promise<PostMeta[]> => {
 	const postsDirectory = path.join(process.cwd(), "app/routes/blog");
