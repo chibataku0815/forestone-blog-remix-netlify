@@ -17,25 +17,15 @@ The `Badge` component is used to display a badge with various variants and color
   - [All Variants](#all-variants)
 
 # Default Badge
-<Canvas>
+<Canvas layout="centered" sourceState="show">
   <Story of={BadgeStories.Default} />
 </Canvas>
 
 <Controls of={BadgeStories.Default} />
 
-```jsx
-import React from 'react';
-
-export const Button = ({ children, onClick }) => (
-  <button
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    onClick={onClick}
-  >
-    {children}
-  </button>
-);
-```
-
 # All Variants
-<Canvas of={BadgeStories.AllVariants} />
+<Canvas layout="centered" sourceState="show">
+  <Story of={BadgeStories.AllVariants} />
+</Canvas>
+<Controls of={BadgeStories.AllVariants} />
 
