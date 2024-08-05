@@ -12,6 +12,7 @@ import { getPosts } from "~/.server/getPosts";
 import { useMemo } from "react";
 import { bundleMDX } from "mdx-bundler";
 import { getMDXComponent } from "mdx-bundler/client";
+import { format } from "date-fns";
 
 /**
  * データローダー関数
@@ -48,13 +49,14 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 export default function BlogPost() {
 	const { code, frontmatter } = useLoaderData<typeof loader>();
 	const Component = useMemo(() => getMDXComponent(code), [code]);
+	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
 
 	return (
 		<article className="prose prose-2xl dark:prose-invert mx-auto py-8 px-4">
 			{/* 記事のタイトルを表示 */}
 			<h1>{frontmatter.title}</h1>
 			{/* 記事の公開日を表示 */}
-			<p className="">{frontmatter.published}</p>
+			<p className="">{formattedDate}</p>
 			{/* MDXコンポーネントを表示し、カウンターコンポーネントを埋め込む */}
 			<div className="overflow-x-auto">
 				<Component />

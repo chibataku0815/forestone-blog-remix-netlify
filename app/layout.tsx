@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Navigation } from "./components/ui/navigation";
+import { format } from "date-fns";
 
 /**
  * アプリケーションの基本レイアウトを定義するコンポーネント。
@@ -14,7 +15,7 @@ const Layout = (props: { children: ReactNode }) => (
 		<Navigation />
 		<main className="">{props.children}</main>
 		<footer className="w-full max-w-7xl mx-auto p-10 flex justify-center">
-			Copyright © {new Date().getFullYear()} Forestone Inc.
+			Copyright © {format(new Date(), "yyyy")} Forestone Inc.
 		</footer>
 	</div>
 );
