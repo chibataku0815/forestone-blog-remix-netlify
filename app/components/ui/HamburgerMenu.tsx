@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
 import { NavLink } from "@remix-run/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/pro-solid-svg-icons";
+import { FaBarsStaggered } from "react-icons/fa6";
+import { ThemeToggle } from "./themeToggle";
 
 export function HamburgerMenu() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +11,10 @@ export function HamburgerMenu() {
 	return (
 		<Sheet open={isOpen} onOpenChange={setIsOpen}>
 			<SheetTrigger asChild>
-				<Button variant="ghost" onClick={() => setIsOpen(true)}>
-					<FontAwesomeIcon icon={faBars} />
-				</Button>
+				<FaBarsStaggered onClick={() => setIsOpen(true)} size={32} />
 			</SheetTrigger>
-			<SheetContent side="left">
+			<SheetContent side="right">
 				<nav className="flex flex-col p-4">
-					<SheetClose asChild>
-						<Button variant="ghost" onClick={() => setIsOpen(false)}>
-							Close
-						</Button>
-					</SheetClose>
 					<NavLink to="/" className="p-2">
 						Home
 					</NavLink>
@@ -34,6 +27,7 @@ export function HamburgerMenu() {
 					<NavLink to="/contact" className="p-2">
 						Contact
 					</NavLink>
+					<ThemeToggle />
 				</nav>
 			</SheetContent>
 		</Sheet>
