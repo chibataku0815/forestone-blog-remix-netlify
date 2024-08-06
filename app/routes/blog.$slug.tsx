@@ -52,11 +52,22 @@ export default function BlogPost() {
 	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
 
 	return (
-		<article className="prose prose-2xl dark:prose-invert mx-auto py-8 px-4">
+		<article className="prose prose-zinc prose-2xl dark:prose-invert mx-auto py-8 px-4">
 			{/* 記事のタイトルを表示 */}
 			<h1>{frontmatter.title}</h1>
 			{/* 記事の公開日を表示 */}
-			<p className="">{formattedDate}</p>
+			<div className="flex flex-row gap-2">
+				<p className="">
+					<span className="">Date: </span>
+					{formattedDate}
+				</p>
+				<p className="">
+					<span className="">Read: </span>
+				</p>
+				<p className="">
+					<span className="">Tags: </span>
+				</p>
+			</div>
 			{/* MDXコンポーネントを表示し、カウンターコンポーネントを埋め込む */}
 			<div className="overflow-x-auto">
 				<Component />

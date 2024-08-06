@@ -203,9 +203,7 @@ const config: Config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    typography({
-      className: 'prose',
-    }),
+    typography(),
     ({ addBase, theme }: PluginAPI) => {
       addBase({
         ':root': {
