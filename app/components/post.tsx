@@ -22,14 +22,19 @@ import type { PostMeta } from "~/types/post";
  * @returns {JSX.Element} 投稿プレビューの要素
  */
 export const Post = ({ slug, frontmatter }: PostMeta) => {
+	// 公開日をフォーマット
 	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
 
+	// ブログ投稿のプレビューを表示
 	return (
 		<article className="space-y-2">
+			{/* ブログ記事へのリンク */}
 			<Link to={`/blog/${slug}`}>
 				<h3 className="text-3xl font-bold">{frontmatter.title}</h3>
 			</Link>
+			{/* ブログ記事の説明 */}
 			<p className="text-gray-600">{frontmatter.description}</p>
+			{/* ブログ記事の公開日 */}
 			<time
 				className="block text-sm text-cyan-700"
 				dateTime={frontmatter.published}

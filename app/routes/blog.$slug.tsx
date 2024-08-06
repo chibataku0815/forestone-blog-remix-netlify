@@ -22,22 +22,28 @@ import { format } from "date-fns";
  * @throws {Response} 記事が見つからない場合は404エラーをスローします
  */
 export const loader = async ({ params }: LoaderFunctionArgs) => {
+	// すべてのブログ投稿を取得
 	const posts = await getPosts();
+	// パラメータのスラッグと一致するブログ投稿を取得
 	const post = posts.find((p) => p.slug === params.slug);
 
+	// ブログ投稿が見つからない場合は404エラーをスロー
 	if (!post) {
 		throw new Response("Not Found", { status: 404 });
 	}
 
+	// MDXファイルをバンドル
 	const { code, frontmatter } = await bundleMDX({
 		source: post.content,
 		mdxOptions(options) {
+			// remarkとrehypeプラグインを設定
 			options.remarkPlugins = [...(options.remarkPlugins ?? [])];
 			options.rehypePlugins = [...(options.rehypePlugins ?? [])];
 			return options;
 		},
 	});
 
+	// バンドルされたコードとfrontmatterをJSON形式で返す
 	return json({ code, frontmatter });
 };
 
@@ -47,10 +53,14 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
  * @returns {JSX.Element} ブログ記事の要素
  */
 export default function BlogPost() {
+	// loader関数で取得したコードとfrontmatterを取得
 	const { code, frontmatter } = useLoaderData<typeof loader>();
+	// MDXコンポーネントを取得
 	const Component = useMemo(() => getMDXComponent(code), [code]);
+	// 公開日をフォーマット
 	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
 
+	// ブログ記事を表示
 	return (
 		<article className="prose prose-zinc prose-2xl dark:prose-invert mx-auto py-8 px-4">
 			{/* 記事のタイトルを表示 */}

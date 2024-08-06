@@ -21,10 +21,14 @@ export const loader = async () => await getPosts();
  * @returns {JSX.Element} ブログのリスト
  */
 export default function BlogLists() {
+	// loader関数で取得したブログのリストを取得
 	const posts = useLoaderData<typeof loader>();
+
+	// ブログのリストをul要素で表示
 	return (
 		<div className="p-10">
 			<ul className="space-y-8">
+				{/* 各ブログ投稿をPostコンポーネントで表示 */}
 				{posts.map((post) => (
 					<li key={post.slug}>
 						<Post {...post} />

@@ -65,12 +65,18 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
+				{/* next-themesによるテーマプロバイダー */}
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					{/* アプリケーションのレイアウト */}
 					<Layout>
+						{/* 子ルートのコンテンツを表示 */}
 						<Outlet />
 					</Layout>
+					{/* スクロール位置の復元 */}
 					<ScrollRestoration />
+					{/* クライアントサイドスクリプト */}
 					<Scripts />
+					{/* 開発モードでのライブリロード */}
 					<LiveReload />
 				</ThemeProvider>
 			</body>
