@@ -1,0 +1,21 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import { Sheet } from './Sheet/sheet';
+import * as SheetStories from './sheet.stories';
+
+<Meta of={SheetStories} />
+
+# Sheet Component
+
+The `Sheet` component is a versatile UI element that can be used to display content in a modal-like overlay. It supports various positions and can be customized to fit different use cases.
+
+## Table of Contents
+
+- [Sheet Component](#sheet-component)
+  - [Default](#default)
+
+## Default
+<Canvas layout="centered" sourceState="show">
+  <Story of={SheetStories.Default} />
+</Canvas>
+
+<Controls of={SheetStories.Default} />

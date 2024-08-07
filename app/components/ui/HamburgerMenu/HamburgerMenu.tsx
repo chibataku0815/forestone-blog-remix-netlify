@@ -1,5 +1,13 @@
+/**
+ * @fileoverview HamburgerMenu component
+ * @description HamburgerMenu component is a component that renders a hamburger menu
+ * @file app/components/ui/HamburgerMenu/HamburgerMenu.tsx
+ * @example
+ * <HamburgerMenu />
+ */
+
 import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "../sheet";
+import { Sheet, SheetContent, SheetTrigger } from "../Sheet/sheet";
 import { NavLink } from "@remix-run/react";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { ThemeToggle } from "../themeToggle";
