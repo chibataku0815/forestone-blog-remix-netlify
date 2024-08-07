@@ -1,4 +1,5 @@
 /**
+ * @fileoverview
  * Component that defines the basic layout of the application.
  * It includes navigation, main content, and footer.
  *

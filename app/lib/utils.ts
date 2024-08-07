@@ -1,14 +1,15 @@
 /**
- * クラス名を結合し、最適化する関数
+ * @fileoverview
+ * Function to merge and optimize class names
  *
  * @module cn
  * @file app/lib/utils.ts
- * @param {...ClassValue[]} inputs - 結合するクラス名（文字列、オブジェクト、または配列）
- * @returns {string} 最適化された結合クラス名
+ * @param {...ClassValue[]} inputs - Class names to merge (strings, objects, or arrays)
+ * @returns {string} Optimized merged class names
  *
  * @example
  * cn('px-2', 'py-1', { 'bg-red-500': isError }, ['text-white', 'font-bold'])
- * // 結果: "px-2 py-1 bg-red-500 text-white font-bold"
+ * // Result: "px-2 py-1 bg-red-500 text-white font-bold"
  */
 
 import { type ClassValue, clsx } from "clsx"

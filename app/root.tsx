@@ -1,7 +1,8 @@
 /**
- * アプリのルートコンポーネント
- * このファイルはRemixアプリケーションのエントリーポイントとなり、
- * 全体的なレイアウトとメタデータを定義します。
+ * @fileoverview
+ * Root component of the application
+ * This file serves as the entry point for the Remix application,
+ * defining the overall layout and metadata.
  *
  * @module App
  * @file app/root.tsx
@@ -22,8 +23,8 @@ import { ThemeProvider } from "next-themes";
 import Layout from "./layout";
 
 /**
- * アプリケーションで使用するリンクを定義します。
- * ここでは、Google Fontsからフォントをロードしています。
+ * Define the links used in the application.
+ * Here, we are loading fonts from Google Fonts.
  *
  * @type {LinksFunction}
  */
@@ -35,8 +36,8 @@ export const links: LinksFunction = () => [
 ];
 
 /**
- * アプリケーションのメタデータを定義します。
- * タイトルと説明を設定しています。
+ * Define the metadata for the application.
+ * Setting the title and description.
  *
  * @type {MetaFunction}
  */
@@ -49,11 +50,11 @@ export const meta: MetaFunction = () => [
 ];
 
 /**
- * アプリケーションのルートコンポーネント。
- * HTMLの基本構造、メタデータ、スクリプト、スタイルを設定し、
- * アプリケーションの全体的な構造を定義します。
+ * Root component of the application.
+ * Sets up the basic HTML structure, metadata, scripts, styles,
+ * and defines the overall structure of the application.
  *
- * @returns {JSX.Element} アプリケーションのルート要素
+ * @returns {JSX.Element} Root element of the application
  */
 export default function App() {
 	return (
@@ -65,18 +66,18 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
-				{/* next-themesによるテーマプロバイダー */}
+				{/* Theme provider using next-themes */}
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-					{/* アプリケーションのレイアウト */}
+					{/* Application layout */}
 					<Layout>
-						{/* 子ルートのコンテンツを表示 */}
+						{/* Display content of child routes */}
 						<Outlet />
 					</Layout>
-					{/* スクロール位置の復元 */}
+					{/* Scroll position restoration */}
 					<ScrollRestoration />
-					{/* クライアントサイドスクリプト */}
+					{/* Client-side scripts */}
 					<Scripts />
-					{/* 開発モードでのライブリロード */}
+					{/* Live reload in development mode */}
 					<LiveReload />
 				</ThemeProvider>
 			</body>

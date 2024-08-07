@@ -1,12 +1,15 @@
 /**
- * テーマ切り替えコンポーネント
+ * @fileoverview
+ * Theme toggle component
  *
- * システム設定、ライトモード、ダークモードを切り替えるボタンを提供します。
- * 現在のテーマに応じたアイコンとテキストを表示します。
+ * Provides a button to switch between system, light, and dark modes.
+ * Displays an icon and text based on the current theme.
  *
  * @module ThemeToggle
  * @file app/components/ui/themeToggle.tsx
- * @returns {JSX.Element} テーマ切り替えボタン
+ * @returns {JSX.Element} Theme toggle button
+ * @example
+ * <ThemeToggle />
  */
 
 "use client";
@@ -59,13 +62,13 @@ export const ThemeToggle = () => {
 	const getThemeText = () => {
 		switch (theme) {
 			case "system":
-				return "システム設定";
+				return "System";
 			case "light":
-				return "ライトモード";
+				return "Light Mode";
 			case "dark":
-				return "ダークモード";
+				return "Dark Mode";
 			default:
-				return "不明";
+				return "Unknown";
 		}
 	};
 
