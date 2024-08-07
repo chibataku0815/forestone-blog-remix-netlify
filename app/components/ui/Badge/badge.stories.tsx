@@ -30,7 +30,7 @@ export const Default: Story = {
 		variant: "outline",
 		color: "destructive",
 	},
-	render: (args) => <Badge {...args} />,
+	render: (args: BadgeProps) => <Badge {...args} />,
 	parameters: {
 		docs: {
 			page: () => (
@@ -45,7 +45,7 @@ export const Default: Story = {
 };
 
 export const AllVariants: Story = {
-	render: (args) => (
+	render: (args: BadgeProps) => (
 		<div className="flex flex-wrap gap-2 bg-surface">
 			{["soft", "solid", "outline"].map((variant) =>
 				["default", "destructive", "success", "warning", "info"].map(
