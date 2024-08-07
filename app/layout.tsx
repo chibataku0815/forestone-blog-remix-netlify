@@ -3,22 +3,22 @@ import { Navigation } from "./components/ui/navigation";
 import { format } from "date-fns";
 
 /**
- * アプリケーションの基本レイアウトを定義するコンポーネント。
- * ナビゲーション、メインコンテンツ、フッターを含みます。
+ * Component that defines the basic layout of the application.
+ * It includes navigation, main content, and footer.
  *
- * @param {Object} props - コンポーネントのプロパティ
- * @param {ReactNode} props.children - レイアウト内に表示される子要素
- * @returns {JSX.Element} アプリケーションのレイアウト
+ * @param {Object} props - Component properties
+ * @param {ReactNode} props.children - Child elements to be displayed within the layout
+ * @returns {JSX.Element} The layout of the application
  */
 const Layout = (props: { children: ReactNode }) => (
 	<div className="min-h-screen flex flex-col bg-background">
-		{/* ナビゲーションコンポーネントを表示 */}
+		{/* Display the navigation component */}
 		<Navigation />
-		{/* メインコンテンツを表示 */}
+		{/* Display the main content */}
 		<main className="">{props.children}</main>
-		{/* フッターを表示 */}
+		{/* Display the footer */}
 		<footer className="w-full max-w-7xl mx-auto p-10 flex justify-center">
-			{/* Copyright情報を表示 */}
+			{/* Display copyright information */}
 			Copyright © {format(new Date(), "yyyy")} Forestone Inc.
 		</footer>
 	</div>

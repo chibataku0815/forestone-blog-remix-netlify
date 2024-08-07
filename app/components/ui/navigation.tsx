@@ -1,6 +1,6 @@
 /**
- * ナビゲーションコンポーネント
- * サイト全体のナビゲーションとテーマ切り替えを提供します。
+ * Navigation component
+ * Provides site-wide navigation and theme switching.
  *
  * @module Navigation
  * @file app/components/ui/navigation.tsx
@@ -9,9 +9,9 @@
 import { HamburgerMenu } from "./HamburgerMenu";
 
 /**
- * ナビゲーションを表示するコンポーネント
+ * Component to display the navigation
  *
- * @returns {React.FC} ナビゲーションコンポーネント
+ * @returns {React.FC} Navigation component
  */
 export function Navigation() {
 	return (
