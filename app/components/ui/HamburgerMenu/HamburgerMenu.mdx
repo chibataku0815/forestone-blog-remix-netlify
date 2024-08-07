@@ -1,0 +1,21 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import { HamburgerMenu } from './HamburgerMenu';
+import * as HamburgerMenuStories from './HamburgerMenu.stories';
+
+<Meta of={HamburgerMenuStories} />
+
+# HamburgerMenu Component
+
+The `HamburgerMenu` component provides a responsive navigation menu with a theme toggle.
+
+## Table of Contents
+
+- [HamburgerMenu Component](#hamburgermenu-component)
+  - [Default](#default)
+
+## Default
+<Canvas layout="centered" sourceState="show">
+  <Story of={HamburgerMenuStories.Default} />
+</Canvas>
+
+<Controls of={HamburgerMenuStories.Default} />

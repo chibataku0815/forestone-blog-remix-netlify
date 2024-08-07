@@ -6,7 +6,7 @@
  * @file app/components/ui/navigation.tsx
  */
 
-import { HamburgerMenu } from "./HamburgerMenu";
+import { HamburgerMenu } from "./HamburgerMenu/HamburgerMenu";
 
 /**
  * Component to display the navigation
