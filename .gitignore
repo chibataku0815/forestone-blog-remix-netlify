@@ -1,10 +1,20 @@
+# Ignore the node_modules directory
 node_modules
 
+# Ignore the .cache directory
 /.cache
+
+# Ignore the /public/build directory
 /public/build
+
+# Ignore the /build directory
 /build
+
+# Ignore the .env file
 .env
 
-# Local Netlify folder
+# Ignore the Local Netlify folder
 .netlify
+
+# Ignore the .DS_Store file
 .DS_Store

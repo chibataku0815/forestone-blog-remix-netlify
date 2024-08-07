@@ -1,1 +1,5 @@
+// This is a JSON configuration file for Prettier, a code formatter.
+// It defines the rules and settings for formatting code in various languages.
+// The empty object `{}` indicates that no specific settings are defined.
+// Prettier will use its default settings for formatting code.
 {}

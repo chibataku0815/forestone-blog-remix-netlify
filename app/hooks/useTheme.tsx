@@ -1,21 +1,22 @@
 /**
- * テーマを管理するカスタムフック
+ * Custom hook to manage the theme (light, dark, system).
  *
  * @module useTheme
  * @file app/hooks/useTheme.tsx
- * @returns {Object} テーマの状態と更新関数
- * @returns {Theme} theme - 現在のテーマ
- * @returns {function} setTheme - テーマを更新する関数
+ * @returns {Object} The current theme and a function to update the theme.
+ * @returns {Theme} theme - The current theme.
+ * @returns {function} setTheme - Function to update the theme.
  */
 
 import { useState, useEffect } from "react";
 
-/** テーマの型定義 */
+/** Type definition for the theme */
 type Theme = "light" | "dark" | "system";
 
 export const useTheme = () => {
 	const [theme, setTheme] = useState<Theme>("system");
 
+	// Load the saved theme from localStorage on initial render
 	useEffect(() => {
 		const savedTheme = localStorage.getItem("theme") as Theme | null;
 		if (savedTheme) {
@@ -23,6 +24,7 @@ export const useTheme = () => {
 		}
 	}, []);
 
+	// Save the theme to localStorage and update the document class
 	useEffect(() => {
 		localStorage.setItem("theme", theme);
 

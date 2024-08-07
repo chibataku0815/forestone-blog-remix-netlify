@@ -7,7 +7,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import rehypePrettyCode from "rehype-pretty-code";
 
-
+// Vite configuration for the Remix app with Netlify adapter and MDX support
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
@@ -21,6 +21,8 @@ export default defineConfig({
         v3_relativeSplatPath: true,
         v3_throwAbortReason: true,
       },
-    }), netlifyPlugin(), tsconfigPaths()
+    }),
+    netlifyPlugin(),
+    tsconfigPaths()
   ],
 });
