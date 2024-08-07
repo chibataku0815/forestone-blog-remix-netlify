@@ -1,15 +1,18 @@
 /**
- * ブログ投稿のプレビューを表示するコンポーネント
+ * Component for displaying a preview of a blog post
  *
  * @module Post
  * @file app/components/post.tsx
- * @param {Object} props - コンポーネントのプロパティ
- * @param {string} props.slug - 投稿のスラッグ（URL用の一意の識別子）
- * @param {Object} props.frontmatter - 投稿のメタデータ
- * @param {string} props.frontmatter.title - 投稿のタイトル
- * @param {string} props.frontmatter.description - 投稿の説明
- * @param {string} props.frontmatter.published - 投稿の公開日
- * @returns {JSX.Element} 投稿プレビューの要素
+ * @param {Object} props - Component properties
+ * @param {string} props.slug - The slug of the post (unique identifier for the URL)
+ * @param {Object} props.frontmatter - The metadata of the post
+ * @param {string} props.frontmatter.title - The title of the post
+ * @param {string} props.frontmatter.description - The description of the post
+ * @param {string} props.frontmatter.published - The publication date of the post
+ * @returns {JSX.Element} The post preview element
+ *
+ * @example
+ * <Post slug="example-slug" frontmatter={{ title: "Example Title", description: "Example Description", published: "2021-01-01" }} />
  */
 
 import { format } from "date-fns";
@@ -17,24 +20,24 @@ import { Link } from "@remix-run/react";
 import type { PostMeta } from "~/types/post";
 
 /**
- * ブログ投稿のプレビューを表示するコンポーネント
- * @param {PostMeta} props - 投稿のメタデータとスラッグ
- * @returns {JSX.Element} 投稿プレビューの要素
+ * Component for displaying a preview of a blog post
+ * @param {PostMeta} props - Post metadata and slug
+ * @returns {JSX.Element} The post preview element
  */
 export const Post = ({ slug, frontmatter }: PostMeta) => {
-	// 公開日をフォーマット
+	// Format the publication date
 	const formattedDate = format(new Date(frontmatter.published), "yyyy-MM-dd");
 
-	// ブログ投稿のプレビューを表示
+	// Display the blog post preview
 	return (
 		<article className="space-y-2">
-			{/* ブログ記事へのリンク */}
+			{/* Link to the blog article */}
 			<Link to={`/blog/${slug}`}>
 				<h3 className="text-3xl font-bold">{frontmatter.title}</h3>
 			</Link>
-			{/* ブログ記事の説明 */}
+			{/* Description of the blog article */}
 			<p className="text-gray-600">{frontmatter.description}</p>
-			{/* ブログ記事の公開日 */}
+			{/* Publication date of the blog article */}
 			<time
 				className="block text-sm text-cyan-700"
 				dateTime={frontmatter.published}

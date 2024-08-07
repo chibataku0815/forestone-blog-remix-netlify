@@ -1,6 +1,11 @@
 /**
- * @fileoverview This file contains a utility function `getPosts` responsible for fetching and processing blog posts from the file system. It reads all markdown files from the designated directory, extracts their frontmatter and content using `gray-matter`, and returns a sorted array of `PostMeta` objects. Each `PostMeta` object contains the post's slug, frontmatter, and raw markdown content. This function is crucial for dynamically generating blog post listings and individual post pages.
+ * @fileoverview This file contains a utility function `getPosts` responsible for fetching and processing blog posts from the file system.
+ * It reads all markdown files from the designated directory, extracts their frontmatter and content using `gray-matter`,
+ * and returns a sorted array of `PostMeta` objects. Each `PostMeta` object contains the post's slug, frontmatter, and raw markdown content.
+ * This function is crucial for dynamically generating blog post listings and individual post pages.
  * @file app/.server/getPosts.tsx
+ * @example
+ * const posts = await getPosts();
  */
 
 import fs from "node:fs";
@@ -10,46 +15,45 @@ import { sortBy } from "lodash-es";
 import type { PostMeta, Frontmatter } from "~/types/post";
 
 /**
- * フロントマターの型定義
+ * Frontmatter type definition
  * @typedef {Object} Frontmatter
- * @property {string} title - 投稿のタイトル
- * @property {string} description - 投稿の説明
- * @property {string} published - 投稿の公開日 (YYYY-MM-DD)
- * @property {boolean} featured - フィーチャーされた投稿かどうか
+ * @property {string} title - The title of the post
+ * @property {string} description - The description of the post
+ * @property {string} published - The publication date of the post (YYYY-MM-DD)
+ * @property {boolean} featured - Whether the post is featured
  */
 
 /**
- * 投稿メタデータの型定義
+ * Post metadata type definition
  * @typedef {Object} PostMeta
- * @property {string} slug - 投稿のスラッグ
- * @property {Frontmatter} frontmatter - 投稿のフロントマター
- * @property {string} content - 投稿の内容
+ * @property {string} slug - The slug of the post
+ * @property {Frontmatter} frontmatter - The frontmatter of the post
+ * @property {string} content - The content of the post
  */
 
 /**
- * ブログ投稿を取得する関数
- * @returns {Promise<PostMeta[]>} 投稿メタデータの配列
+ * Function to fetch blog posts
+ * @returns {Promise<PostMeta[]>} Array of post metadata
  */
-
 export const getPosts = async (): Promise<PostMeta[]> => {
-	// ブログ投稿が格納されているディレクトリのパスを取得
+	// Get the path to the directory where blog posts are stored
 	const postsDirectory = path.join(process.cwd(), "app/routes/blog");
-	// ディレクトリ内のすべてのファイル名を取得
+	// Get all file names in the directory
 	const filenames = fs.readdirSync(postsDirectory);
 
-	// 各ファイルに対して処理を実行
+	// Process each file
 	const posts = filenames.map((filename) => {
-		// ファイルの絶対パスを取得
+		// Get the absolute path of the file
 		const filePath = path.join(postsDirectory, filename);
-		// ファイルの内容をUTF-8エンコーディングで読み込む
+		// Read the file content with UTF-8 encoding
 		const fileContents = fs.readFileSync(filePath, "utf8");
-		// gray-matterを使用してファイルの内容からfrontmatterとコンテンツを抽出
+		// Use gray-matter to extract frontmatter and content from the file
 		const { data } = matter(fileContents);
 
-		// ファイル名からスラッグを生成（.mdx拡張子を除去）
+		// Generate a slug from the filename (removing the .mdx extension)
 		const slug = filename.replace(/\.mdx$/, "");
 
-		// PostMetaオブジェクトを作成
+		// Create a PostMeta object
 		return {
 			slug,
 			frontmatter: data as Frontmatter,
@@ -57,7 +61,7 @@ export const getPosts = async (): Promise<PostMeta[]> => {
 		};
 	});
 
-	// 公開日でソートし、新しい投稿が最初に来るように逆順にする
+	// Sort by publication date, with the newest posts first
 	return sortBy(
 		posts,
 		(post) => new Date(post.frontmatter.published),
