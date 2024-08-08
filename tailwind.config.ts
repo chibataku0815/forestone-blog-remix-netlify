@@ -10,7 +10,8 @@ import type { PluginAPI } from "tailwindcss/types/config";
 import {
   mauve, violet, red, green, blue, orange,
   mauveDark, violetDark, redDark, greenDark, blueDark, orangeDark,
-  redDarkA, greenDarkA, orangeDarkA, blueDarkA
+  redDarkA, greenDarkA, orangeDarkA, blueDarkA,
+  redA
 } from "@radix-ui/colors";
 
 /**
@@ -22,6 +23,30 @@ import {
  */
 const defineColor = (lightColor: string, darkColor: string) =>
   `light-dark(${lightColor}, ${darkColor})`;
+
+/**
+ * Utility function to define color variants.
+ *
+ * @param {Record<string, string>} baseColor - The base color.
+ * @param {Record<string, string>} darkColor - The dark mode color.
+ * @param {Record<string, string>} solidColor - The solid color.
+ * @param {Record<string, string>} foregroundColor - The foreground color.
+ * @param {Record<string, string>} borderColor - The border color.
+ * @returns {object} An object representing the color variants.
+ */
+const defineColorVariants = (
+  baseColor: Record<string, string>,
+  darkColor: Record<string, string>,
+  solidColor: Record<string, string>,
+  foregroundColor: Record<string, string>,
+  borderColor: Record<string, string>
+) => ({
+  DEFAULT: defineColor(baseColor[2], darkColor[2]),
+  'is-default': defineColor(baseColor[11], darkColor[11]),
+  'is-solid': defineColor(solidColor[9], darkColor[9]),
+  'foreground': defineColor(foregroundColor[12], darkColor[12]),
+  border: defineColor(borderColor[6], darkColor[6]),
+});
 
 const config: Config = {
   darkMode: ["class"],
@@ -47,26 +72,10 @@ const config: Config = {
           DEFAULT: defineColor(violet.violet9, violetDark.violet9),
           'is-default': defineColor(violet.violet12, violetDark.violet12),
         },
-        destructive: {
-          DEFAULT: defineColor(red.red2, redDarkA.redA2),
-          'is-default': defineColor(red.red11, redDark.red11),
-          border: defineColor(red.red6, redDark.red6),
-        },
-        success: {
-          DEFAULT: defineColor(green.green2, greenDarkA.greenA2),
-          'is-default': defineColor(green.green11, greenDark.green11),
-          border: defineColor(green.green6, greenDark.green6),
-        },
-        warning: {
-          DEFAULT: defineColor(orange.orange2, orangeDarkA.orangeA2),
-          'is-default': defineColor(orange.orange11, orangeDark.orange11),
-          border: defineColor(orange.orange6, orangeDark.orange6),
-        },
-        info: {
-          DEFAULT: defineColor(blue.blue2, blueDarkA.blueA2),
-          'is-default': defineColor(blue.blue11, blueDark.blue11),
-          border: defineColor(blue.blue6, blueDark.blue6),
-        },
+        destructive: defineColorVariants(red, redDarkA, redDark, redA, red),
+        success: defineColorVariants(green, greenDarkA, greenDark, green, green),
+        warning: defineColorVariants(orange, orangeDarkA, orangeDark, orange, orange),
+        info: defineColorVariants(blue, blueDarkA, blueDark, blue, blue),
         border: defineColor(mauve.mauve9, mauveDark.mauve9),
         input: defineColor(mauve.mauve6, mauveDark.mauve6),
         ring: defineColor(violet.violet8, violetDark.violet8),
@@ -75,24 +84,6 @@ const config: Config = {
        * Extended color palette for the application.
        * It includes CSS variable-based colors for background, text, and border.
       */
-      backgroundColor: {
-        soft: 'var(--soft-background)',
-        solid: 'var(--solid-background)',
-        surface: 'var(--surface-background)',
-        outline: 'var(--outline-background)',
-      },
-      textColor: {
-        soft: 'var(--soft-foreground)',
-        solid: 'var(--solid-foreground)',
-        surface: 'var(--surface-foreground)',
-        outline: 'var(--outline-foreground)',
-      },
-      borderColor: {
-        destructive: 'var(--destructive-border)',
-        success: 'var(--success-border)',
-        warning: 'var(--warning-border)',
-        info: 'var(--info-border)',
-      },
       letterSpacing: {
         wider: '0.2em',
         widest: '0.3em',

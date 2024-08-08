@@ -62,18 +62,17 @@ const badgeVariants = cva(
 			{
 				variant: "solid",
 				color: "destructive",
-				class:
-					"bg-destructive-is-default text-destructive hover:bg-destructive-is-default",
+				class: "bg-destructive-is-solid text-destructive-foreground",
 			},
 			{
 				variant: "solid",
 				color: "success",
-				class: "bg-success-is-default text-success hover:bg-success-is-default",
+				class: "bg-success-is-solid text-success-is-default",
 			},
 			{
 				variant: "solid",
 				color: "warning",
-				class: "bg-warning-is-default text-warning hover:bg-warning-is-default",
+				class: "bg-warning-is-solid text-warning-is-default",
 			},
 			{
 				variant: "solid",
